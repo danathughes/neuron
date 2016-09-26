@@ -15,4 +15,5 @@ int main(int argc, const char * argv){
 	// Shut down systems in the correct order
 	gRenderer.shutDown();
 	getchar();
+	return 0; 
 }
