@@ -31,6 +31,7 @@ Gibson is and always will be free, and therefore released under the GNU GPL v3.
 ## Special thanks / research material used
 Jason Gregory - *Game Engine Architecture*  
 Scott Meyers - *Effective C++*  
+Herb Sutter, Andrei Alexandrescu - *C++ Coding Standards: 101 Rules, Guidelines, and Best Practices*  
 Eric Haines - *Interactive 3D Graphics* (Udacity)  
 Richard Jones, Richard Lins - *Garbage Collection: Algorithms for Automatic Dynamic Memory Management*
 
