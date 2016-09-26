@@ -26,4 +26,4 @@ In the long term, I would like to develop:
 - Vulkan DX11, and DX12 support
 
 # License
-DFE is and always will be free, and therefore released under the MIT License.
+DFE is and always will be free, and therefore released under the GNU GPL v3.
