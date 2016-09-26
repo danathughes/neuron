@@ -8,8 +8,11 @@ will use either a vastly oversimplified library just to get things moving, or a 
 
 ## Directory structure
 - src/ and headers/ - contains core .cpp and .h files
-- lib/ - contains GLEW and GLFW binaries (note: these are stored via Git LFS, which you must use when cloning the project)
 - shaders/ - contains GLSL shader files
+
+## Building
+Gibson uses GLFW and GLEW to faciliate windowing; you will need to follow [the learnopengl.com instructions](http://learnopengl.com/#!Getting-started/Creating-a-window) for 
+installing these. A better solution will be found eventually.
 
 ## Design choices 
 - Everything must be const unless there is a good reason for it not to be (and a comment explaining why)
