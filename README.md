@@ -15,7 +15,8 @@ Gibson uses GLFW and GLEW to faciliate windowing; you will need to follow [the l
 installing these. A better solution will be found eventually.
 
 ## Design choices 
-- Everything must be const unless there is a good reason for it not to be (and a comment explaining why)
+- `const` is used [as liberally as possible](http://www.gamasutra.com/view/news/169296/Indepth_Functional_programming_in_C.php), especially for function input arguments
+- Use const variables instead of #defines 
 
 ## Conventions
 - Use camel case (LikeThis, not_like_this or_LikeThis), except with globals (gThenDoThis)
