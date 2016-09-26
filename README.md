@@ -27,3 +27,6 @@ In the long term, I would like to develop:
 
 # License
 Gibson is and always will be free, and therefore released under the GNU GPL v3.
+
+# Special Thanks
+Jason Gregory, Scott Meyers, Eric Haines
