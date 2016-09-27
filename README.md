@@ -32,8 +32,9 @@ void function (herp flerp) {
 Gibson is and always will be free, and therefore released under the GNU GPL v3.
 
 ## Special thanks / research material used
+Joey de Vries - [Learn OpenGL Tutorials](http://learnopengl.com/)
 Jason Gregory - *Game Engine Architecture*  
 Scott Meyers - *Effective C++*  
 Herb Sutter, Andrei Alexandrescu - *C++ Coding Standards: 101 Rules, Guidelines, and Best Practices*  
-Eric Haines - *Interactive 3D Graphics* (Udacity)  
+Eric Haines, Gundega Dekena - [*Interactive 3D Graphics*](https://www.udacity.com/course/interactive-3d-graphics--cs291) (Udacity)  
 Richard Jones, Richard Lins - *Garbage Collection: Algorithms for Automatic Dynamic Memory Management*
