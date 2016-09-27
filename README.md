@@ -36,5 +36,5 @@ Richard Jones, Richard Lins - *Garbage Collection: Algorithms for Automatic Dyna
 Jason Gregory - *Game Engine Architecture*  
 Scott Meyers - *Effective C++*  
 Herb Sutter, Andrei Alexandrescu - *C++ Coding Standards: 101 Rules, Guidelines, and Best Practices*  
-Joey de Vries - [Learn OpenGL Tutorials](http://learnopengl.com/) 
+Joey de Vries - [Learn OpenGL Tutorials](http://learnopengl.com/)  
 Eric Haines, Gundega Dekena - [*Interactive 3D Graphics*](https://www.udacity.com/course/interactive-3d-graphics--cs291) (Udacity)  
