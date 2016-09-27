@@ -9,22 +9,25 @@ will use either a vastly oversimplified library just to get things moving, or a 
 ## Directory structure
 - src/ and headers/ - contains core .cpp and .h files
 - shaders/ - contains GLSL shader files
+- lib/ - libraries for GLFW and GLEW
 
 ## Building
-Gibson uses GLFW and GLEW to faciliate windowing; you will need to follow [the learnopengl.com instructions](http://learnopengl.com/#!Getting-started/Creating-a-window) for 
-installing these. A better solution will be found eventually.
+You will need Git LFS to correctly pull the files in lib/. Once pulled, the only thing necessary should be to open the project in Visual Studio (VS2013 Express is the 
+supported/tested version) and build/run.
 
 ## Design choices 
 - `const` is used [as liberally as possible](http://www.gamasutra.com/view/news/169296/Indepth_Functional_programming_in_C.php), especially for function input arguments
-- Use const variables instead of #defines 
+- Use `const` variables instead of `#defines` 
+- use `#pragma once` instead of `#ifndef` guards
 
 ## Conventions
 - Use camel case (LikeThis, not_like_this or_LikeThis), except with globals (gThenDoThis)
 - Return type, name, and args on one line followed by space and open brace:
+```
 void function (herp flerp) {
 
 }
-
+```
 ## License
 Gibson is and always will be free, and therefore released under the GNU GPL v3.
 
@@ -34,4 +37,3 @@ Scott Meyers - *Effective C++*
 Herb Sutter, Andrei Alexandrescu - *C++ Coding Standards: 101 Rules, Guidelines, and Best Practices*  
 Eric Haines - *Interactive 3D Graphics* (Udacity)  
 Richard Jones, Richard Lins - *Garbage Collection: Algorithms for Automatic Dynamic Memory Management*
-
