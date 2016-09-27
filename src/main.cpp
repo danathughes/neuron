@@ -1,4 +1,5 @@
 #include <Renderer.h>
+#include <Source.h>
 #include <iostream>
 
 #define DEBUG
@@ -11,6 +12,7 @@ int main(int argc, const char * argv){
 
 	// Begin game loop
 	std::cout << "Game is running! \n";
+	Initialize();
 
 	// Shut down systems in the correct order
 	gRenderer.shutDown();

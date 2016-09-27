@@ -1,24 +1,24 @@
 #include <iostream>
+#include <Source.h>
 
 // GLEW
 #define GLEW_STATIC
 #include <GL/glew.h>
 
 // GLFW
-#include <GLFW/glfw3.h>
+#include <glfw3.h>
 
 // Shaders
-#include <VertShader.h>
-#include <FragShader.h>
+#include <VertexShader.h>
+#include <FragmentShader.h>
 
 // Function prototypes
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode);
 
 // Window dimensions
-const GLuint WIDTH = 800, HEIGHT = 600;
+const GLuint WIDTH = 1200, HEIGHT = 800;
 
-// The MAIN function, from here we start the application and run the game loop
-int main()
+void Initialize()
 {
 	// Init GLFW
 	glfwInit();
@@ -29,7 +29,7 @@ int main()
 	glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
 
 	// Create a GLFWwindow object that we can use for GLFW's functions
-	GLFWwindow* window = glfwCreateWindow(WIDTH, HEIGHT, "LearnOpenGL", nullptr, nullptr);
+	GLFWwindow* window = glfwCreateWindow(WIDTH, HEIGHT, "Gibson Engine", nullptr, nullptr);
 	glfwMakeContextCurrent(window);
 
 	// Set the required callback functions
@@ -128,7 +128,7 @@ int main()
 
 		// Render
 		// Clear the colorbuffer
-		glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+		glClearColor(0.6f, 0.2f, 0.1f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 
 		// Draw our first triangle
@@ -145,7 +145,7 @@ int main()
 	glDeleteBuffers(1, &VBO);
 	// Terminate GLFW, clearing any resources allocated by GLFW.
 	glfwTerminate();
-	return 0;
+
 }
 
 // Is called whenever a key is pressed/released via GLFW
