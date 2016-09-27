@@ -2,8 +2,7 @@
 A 3D game engine. 
 
 ## Roadmap
-Gibson is an iteratively developed project for the purpose of self-teaching game engine programming; the first major release will be scoped to focus on specializing 
-the engine for developing a first person shooter game. The core focus of Gibson is the rendering subsystem, and to some extent the physics subsystem as well (the 1.0 release 
+Gibson is an iteratively developed project for the purpose of self-teaching game engine programming; the first major release will be written to support a simple first person game. The core focus of Gibson is the rendering subsystem, and to some extent the physics subsystem as well (the 1.0 release 
 will use either a vastly oversimplified library just to get things moving, or a middleware solution like PhysX, whichever is easier).
 
 ## Directory structure
