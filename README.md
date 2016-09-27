@@ -15,7 +15,8 @@ Gibson uses GLFW and GLEW to faciliate windowing; you will need to follow [the l
 installing these. A better solution will be found eventually.
 
 ## Design choices 
-- Everything must be const unless there is a good reason for it not to be (and a comment explaining why)
+- `const` is used [as liberally as possible](http://www.gamasutra.com/view/news/169296/Indepth_Functional_programming_in_C.php), especially for function input arguments
+- Use const variables instead of #defines 
 
 ## Conventions
 - Use camel case (LikeThis, not_like_this or_LikeThis), except with globals (gThenDoThis)
@@ -28,8 +29,9 @@ void function (herp flerp) {
 Gibson is and always will be free, and therefore released under the GNU GPL v3.
 
 ## Special thanks / research material used
-Jason Gregory - *Game Engine Architecture*
+Jason Gregory - *Game Engine Architecture*  
+Scott Meyers - *Effective C++*  
+Herb Sutter, Andrei Alexandrescu - *C++ Coding Standards: 101 Rules, Guidelines, and Best Practices*  
+Eric Haines - *Interactive 3D Graphics* (Udacity)  
+Richard Jones, Richard Lins - *Garbage Collection: Algorithms for Automatic Dynamic Memory Management*
 
-Scott Meyers - *Effective C++*, 3rd ed.
-
-Eric Haines - *Interactive 3D Graphics* (Udacity)
