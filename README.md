@@ -21,7 +21,7 @@ supported/tested version) and build/run.
 - No opaque one-liners or "optimizations" that exploit operator precedence, especially with pointers; this is not a coding competition and you don't look as cool as you think.
 
 ## Conventions
-- Use camel case (LikeThis, not_like_this or_LikeThis), except with globals (gThenDoThis)
+- Use capitalized camel case `LikeThis`, not `like_this` or `m_LikeThis`. Prefix globals with `g`, `gLikeThis`.
 - Return type, name, and args on one line followed by space and open brace:
 ```
 void function (herp flerp) {
