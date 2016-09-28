@@ -18,6 +18,7 @@ supported/tested version) and build/run.
 - `const` is used [as liberally as possible](http://www.gamasutra.com/view/news/169296/Indepth_Functional_programming_in_C.php), especially for function input arguments
 - Use `const` variables instead of `#defines` 
 - use `#pragma once` instead of `#ifndef` guards
+- No opaque one-liners or "optimizations" that exploit operator precedence, especially with pointers; this is not a coding competition and you don't look as cool as you think.
 
 ## Conventions
 - Use camel case (LikeThis, not_like_this or_LikeThis), except with globals (gThenDoThis)
