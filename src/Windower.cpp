@@ -39,7 +39,7 @@ void Windower::StartUp()
 	glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
 
 	// Create a GLFWwindow object that we can use for GLFW's functions
-	GLFWwindow* window = glfwCreateWindow(WIDTH, HEIGHT, "Gibson Engine", nullptr, nullptr);
+	this->window = glfwCreateWindow(WIDTH, HEIGHT, "Gibson Engine", nullptr, nullptr);
 	glfwMakeContextCurrent(window);
 
 	// Set the required callback functions
@@ -82,7 +82,7 @@ void Windower::StartUp()
 		std::cout << "ERROR::SHADER::FRAGMENT::COMPILATION_FAILED\n" << infoLog << std::endl;
 	}
 	// Link shaders
-	GLuint shaderProgram = glCreateProgram();
+	this->shaderProgram = glCreateProgram();
 	glAttachShader(shaderProgram, vertexShader);
 	glAttachShader(shaderProgram, fragmentShader);
 	glLinkProgram(shaderProgram);
@@ -102,21 +102,21 @@ void Windower::StartUp()
 		0.5f, -0.5f, 0.0f, // Bottom Right 
 		-0.5f, 0.5f, 0.0f,  // Top Left
 		0.5f, 0.5f, 0.0f	// Top Right
-		
+
 	};
 
-	GLuint VBO, VAO;
-	
+	//GLuint VBO, VAO;
+
 	// Allocate reference for our Vertex Array/Attribute Object
-	glGenVertexArrays(1, &VAO);
+	glGenVertexArrays(1, &this->VAO);
 
 	// Allocate reference for our Vertex Buffer Object
-	glGenBuffers(1, &VBO);
+	glGenBuffers(1, &this->VBO);
 
 	// Bind the Vertex Array Object so that it's associated with the VBO for this context
-	glBindVertexArray(VAO);
+	glBindVertexArray(this->VAO);
 	// Bind the vertex for the context
-	glBindBuffer(GL_ARRAY_BUFFER, VBO);
+	glBindBuffer(GL_ARRAY_BUFFER, this->VBO);
 	// Copy vertices into the allocated buffer in GPU memory
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 	// Set up data about our VBO; this function _only_ works if a VBO is bound to GL_ARRAY_BUFFER
@@ -129,7 +129,9 @@ void Windower::StartUp()
 	glBindVertexArray(0); // Unbind VAO (it's always a good thing to unbind any buffer/array to prevent strange bugs)
 
 	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+}
 
+void Windower::GameLoop(GLFWwindow* window, const GLuint shaderProgram, const GLuint VAO, const GLuint VBO) {
 	// Game loop
 	while (!glfwWindowShouldClose(window))
 	{
