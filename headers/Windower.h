@@ -11,11 +11,7 @@
 class Windower
 {
 public:
-	GLuint VAO;
-	GLuint VBO;
-	GLuint shaderProgram;
 	GLFWwindow* window;
-	void GameLoop(GLFWwindow* window, const GLuint shaderProgram, const GLuint VAO, const GLuint VBO);
 	void StartUp();
 	void ShutDown();
 	Windower();
