@@ -6,9 +6,9 @@ Gibson is an iteratively developed project for the purpose of self-teaching game
 will use either a vastly oversimplified library just to get things moving, or a middleware solution like PhysX, whichever is easier).
 
 ## Directory structure
-- src/ and headers/ - contains core .cpp and .h files
-- shaders/ - contains GLSL shader files
-- lib/ - libraries for GLFW and GLEW
+- `src/` and `headers/` - contains core .cpp and .h files
+- `shaders/` - contains GLSL shader files
+- `lib/` - libraries for GLFW and GLEW
 
 ## Building
 You will need Git LFS to correctly pull the files in lib/. Once pulled, the only thing necessary should be to open the project in Visual Studio (VS2013 Express is the 
