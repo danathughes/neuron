@@ -18,7 +18,17 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 // Window dimensions
 const GLuint WIDTH = 1200, HEIGHT = 800;
 
-void Initialize()
+Windower::Windower()
+{
+
+}
+
+Windower::~Windower()
+{
+
+}
+
+void Windower::StartUp()
 {
 	// Init GLFW
 	glfwInit();
