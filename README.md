@@ -23,7 +23,8 @@ supported/tested version) and build/run.
 ## Conventions
 - Use capitalized camel case `LikeThis`, not `like_this` or `m_LikeThis`. Prefix globals with `g`, `gLikeThis`.
 - In class declarations, declare public, then private, attributes first, then methods (except constructors/destructors - place them last); everything should be in decending alphabetized order. 
-- For pointers and references, use `Type* thing` or `Type& thing`, not `Type *thing`; the type declaration answers "what is `thing`?", and `thing` is a reference or pointer to Type, not a Type itself, so having to look at the variable name too is confusing.
+- For pointers and references, use `Type* thing` or `Type& thing`, not `Type *thing`.
+- Because I'm still getting used to C++'s scoping rules, if you call a method from within another method, preface it with `this->` so it's explicit that it's a class method (I don't want to spend time double checking). 
 - Return type, name, and args on one line followed by space and open brace:
 ```
 void function (herp flerp) {
