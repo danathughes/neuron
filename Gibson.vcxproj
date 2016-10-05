@@ -13,13 +13,13 @@
   <ItemGroup>
     <ClInclude Include="headers\glew.h" />
     <ClInclude Include="headers\glfw3.h" />
-    <ClInclude Include="headers\MemManager.h" />
+    <ClInclude Include="headers\PoolAllocator.h" />
     <ClInclude Include="headers\Renderer.h" />
     <ClInclude Include="headers\Windower.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\MemManager.cpp" />
+    <ClCompile Include="src\PoolAllocator.cpp" />
     <ClCompile Include="src\Renderer.cpp" />
     <ClCompile Include="src\Windower.cpp" />
   </ItemGroup>
