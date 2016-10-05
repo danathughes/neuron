@@ -2,8 +2,7 @@
 A 3D game engine. 
 
 ## Roadmap
-Gibson is an iteratively developed project for the purpose of self-teaching game engine programming; the first major release will be scoped to focus on specializing 
-the engine for developing a first person shooter game. The core focus of Gibson is the rendering subsystem, and to some extent the physics subsystem as well (the 1.0 release 
+Gibson is an iteratively developed project for the purpose of self-teaching game engine programming; the first major release will be written to support a simple first person game. The core focus of Gibson is the rendering subsystem, and to some extent the physics subsystem as well (the 1.0 release 
 will use either a vastly oversimplified library just to get things moving, or a middleware solution like PhysX, whichever is easier).
 
 ## Directory structure
@@ -19,9 +18,10 @@ supported/tested version) and build/run.
 - `const` is used [as liberally as possible](http://www.gamasutra.com/view/news/169296/Indepth_Functional_programming_in_C.php), especially for function input arguments
 - Use `const` variables instead of `#defines` 
 - use `#pragma once` instead of `#ifndef` guards
+- No opaque one-liners or "optimizations" that exploit operator precedence, especially with pointers; this is not a coding competition and you don't look as cool as you think.
 
 ## Conventions
-- Use camel case (LikeThis, not_like_this or_LikeThis), except with globals (gThenDoThis)
+- Use capitalized camel case `LikeThis`, not `like_this` or `m_LikeThis`. Prefix globals with `g`, `gLikeThis`.
 - Return type, name, and args on one line followed by space and open brace:
 ```
 void function (herp flerp) {
