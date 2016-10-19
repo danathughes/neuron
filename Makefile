@@ -6,9 +6,9 @@ CC = g++
 
 # COMPILER_FLAGS specifies the additional compilation options we're using
 # -w suppresses all warnings
-COMPILER_FLAGS = -S -std=c++11 -Wall -pedantic -c
+COMPILER_FLAGS = -c -lstdc++ -Wall -pedantic -c
 
-FILE_TYPE = -m32
+FILE_TYPE = -arch x86_64
 
 # LINKER_FLAGS specifies the libraries we're linking against
 # Cocoa, IOKit, and CoreVideo are needed for static GLFW3.
@@ -21,10 +21,12 @@ OBJ_NAME = main
 SRC_PATH = ./src/
 
 # INCLUDE_PATHS specifies the additional include paths we'll need
-INCLUDE_PATHS = -I/usr/local/include -I/opt/X11/include -I./headers -I./shaders
+INCLUDE_PATHS = -I/opt/X11/include -I./headers -I./shaders
+#-I/usr/local/include
 
 # LIBRARY_PATHS specifies the additional library paths we'll need
-LIBRARY_PATHS = -L/usr/local/lib -I/opt/X11/lib -I./libs
+LIBRARY_PATHS =  -I/opt/X11/lib -I./libs
+#-L/usr/local/lib
 
 #######################################################################
 # Commands
@@ -35,29 +37,16 @@ gibson: main.o Renderer.o Windower.o PoolAllocator.o
 	$(CC)  main.o Renderer.o Windower.o PoolAllocator.o $(LINKER_FLAGS) $(FILE_TYPE) -o gibson
 
 PoolAllocator.o:
-	$(CC) $(SRC_PATH)PoolAllocator.cpp $(INCLUDE_PATHS) $(LIBRARY_PATHS) $(COMPILER_FLAGS) $(FILE_TYPE) $(LINKER_FLAGS) -o PoolAllocator.o
+	$(CC) $(SRC_PATH)PoolAllocator.cpp $(INCLUDE_PATHS) $(LIBRARY_PATHS) $(COMPILER_FLAGS) $(FILE_TYPE) -o PoolAllocator.o
 
 Windower.o:
-	$(CC) $(SRC_PATH)Windower.cpp $(INCLUDE_PATHS) $(LIBRARY_PATHS) $(COMPILER_FLAGS) $(FILE_TYPE) $(LINKER_FLAGS) -o Windower.o 
+	$(CC) $(SRC_PATH)Windower.cpp $(INCLUDE_PATHS) $(LIBRARY_PATHS) $(COMPILER_FLAGS) $(FILE_TYPE) -o Windower.o
 
 Renderer.o:
-	$(CC) $(SRC_PATH)Renderer.cpp $(INCLUDE_PATHS) $(LIBRARY_PATHS) $(COMPILER_FLAGS) $(FILE_TYPE) $(LINKER_FLAGS) -o Renderer.o
+	$(CC) $(SRC_PATH)Renderer.cpp $(INCLUDE_PATHS) $(LIBRARY_PATHS) $(COMPILER_FLAGS) $(FILE_TYPE) -o Renderer.o
 
 main.o:
-	$(CC) $(SRC_PATH)main.cpp $(INCLUDE_PATHS) $(LIBRARY_PATHS) $(COMPILER_FLAGS) $(FILE_TYPE) $(LINKER_FLAGS) -o main.o
+	$(CC) $(SRC_PATH)main.cpp $(INCLUDE_PATHS) $(LIBRARY_PATHS) $(COMPILER_FLAGS) $(FILE_TYPE) -o main.o
 
-#all :
-#	$(CC) $(SRC) $(INCLUDE_PATHS) $(LIBRARY_PATHS) $(COMPILER_FLAGS) $(LINKER_FLAGS) -o $(OBJ_NAME)
-#	rm -r $(OBJ_NAME).dSYM
-#	./$(OBJ_NAME)
-
-#build:
-#	$(CC) $(SRC) $(INCLUDE_PATHS) $(LIBRARY_PATHS) $(COMPILER_FLAGS) $(LINKER_FLAGS) -o $(OBJ_NAME)
-#	rm -r $(OBJ_NAME).dSYM
-
-#go:
-#	./$(OBJ_NAME)
-
-#clean:
-#	rm $(OBJ_NAME)
-
+clean:
+	rm *.o headers/*.gch
