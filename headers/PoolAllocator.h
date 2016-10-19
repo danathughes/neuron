@@ -1,5 +1,3 @@
-#pragma once
-
 class PoolAllocator
 {
 public:
@@ -8,4 +6,3 @@ public:
 	void StartUp();
 	void ShutDown();
 };
-

@@ -7,7 +7,7 @@
 Renderer gRenderer;
 Windower gWindower;
 
-int main(int argc, const char * argv){
+int main(int argc, const char** argv){
 	gRenderer = Renderer();
 	gWindower = Windower();
 	// Start subsystems in the correct order
