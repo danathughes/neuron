@@ -6,7 +6,7 @@ CC = g++
 
 # COMPILER_FLAGS specifies the additional compilation options we're using
 # -w suppresses all warnings
-COMPILER_FLAGS = -c -lstdc++ -Wall -pedantic -c
+COMPILER_FLAGS = -c -std=c++11 -Wall -pedantic -c
 
 FILE_TYPE = -arch x86_64
 
@@ -49,4 +49,4 @@ main.o:
 	$(CC) $(SRC_PATH)main.cpp $(INCLUDE_PATHS) $(LIBRARY_PATHS) $(COMPILER_FLAGS) $(FILE_TYPE) -o main.o
 
 clean:
-	rm *.o headers/*.gch
+	rm *.o headers/*.gch gibson
