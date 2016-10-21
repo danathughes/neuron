@@ -16,7 +16,7 @@ int main(int argc, const char** argv){
 	gWindower = Windower();
 	// Start subsystems in the correct order
 	gInputManager.StartUp();
-	gWindower.StartUp((GLFWkeyfun)gInputManager.GLFWKeyCallback);
+	gWindower.StartUp((GLFWkeyfun)gInputManager.GLFWKeyCallback); // NOTE: For some reason, Gibson crashes if you start the renderer after the windower??
 	gRenderer.StartUp();
 
 	// Begin game loop

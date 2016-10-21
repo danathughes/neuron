@@ -29,7 +29,7 @@ void Windower::StartUp(GLFWkeyfun callback)
 	this->window = glfwCreateWindow(WIDTH, HEIGHT, "Gibson Engine", nullptr, nullptr);
 	glfwMakeContextCurrent(window);
 	// Set the required callback functions
-	//glfwSetKeyCallback(window, callback);
+	glfwSetKeyCallback(window, callback);
 	// Set this to true so GLEW knows to use a modern approach to retrieving function pointers and extensions
 	glewExperimental = GL_TRUE;
 	// Initialize GLEW to setup the OpenGL Function pointers
