@@ -1,17 +1,22 @@
 #include <Renderer.h>
 #include <Windower.h>
+#include <InputManager.h>
 #include <iostream>
 
 #define DEBUG
 
+InputManager gInputManager;
 Renderer gRenderer;
 Windower gWindower;
 
+
 int main(int argc, const char** argv){
+	gInputManager = InputManager();
 	gRenderer = Renderer();
 	gWindower = Windower();
 	// Start subsystems in the correct order
-	gWindower.StartUp();
+	gInputManager.StartUp();
+	gWindower.StartUp((GLFWkeyfun)gInputManager.GLFWKeyCallback);
 	gRenderer.StartUp();
 
 	// Begin game loop
@@ -19,8 +24,10 @@ int main(int argc, const char** argv){
 	gRenderer.DrawLoop(gWindower.window, gRenderer.shaderProgram, gRenderer.VAO, gRenderer.VBO);
 
 	// Shut down systems in the correct order
-	gRenderer.ShutDown();
 	gWindower.ShutDown();
+	gRenderer.ShutDown();
+	gInputManager.ShutDown();
+	std::cout << "Termination successful, press any key to close. \n";
 	getchar();
-	return 0; 
+	return 0;
 }

@@ -15,6 +15,7 @@
 
 void Renderer::InitializeShaders()
 {
+	std::cout << "Renderer::InitializeShaders()\n";
 	// Build and compile our shader program
 	// Vertex shader
 	GLuint vertexShader = glCreateShader(GL_VERTEX_SHADER);
@@ -57,10 +58,11 @@ void Renderer::InitializeShaders()
 
 void Renderer::InitializeDrawData()
 {
+	std::cout << "Renderer::InitializeDrawData()\n";
 	// Set up vertex data (and buffer(s)) and attribute pointers (in CPU memory)
 	GLfloat vertices[] = {
-		-0.5f, -0.5f, 0.0f, // Bottom Left  
-		0.5f, -0.5f, 0.0f, // Bottom Right 
+		-0.5f, -0.5f, 0.0f, // Bottom Left
+		0.5f, -0.5f, 0.0f, // Bottom Right
 		-0.5f, 0.5f, 0.0f,  // Top Left
 		0.5f, 0.5f, 0.0f	// Top Right
 
@@ -81,7 +83,7 @@ void Renderer::InitializeDrawData()
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 	// Set up data about our VBO; this function _only_ works if a VBO is bound to GL_ARRAY_BUFFER
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (GLvoid*)0);
-	// Enable the vertex array created above; 
+	// Enable the vertex array created above;
 	glEnableVertexAttribArray(0);
 
 	glBindBuffer(GL_ARRAY_BUFFER, 0); // Note that this is allowed, the call to glVertexAttribPointer registered VBO as the currently bound vertex buffer object so afterwards we can safely unbind

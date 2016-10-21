@@ -33,8 +33,8 @@ LIBRARY_PATHS =  -I/opt/X11/lib -I./libs
 
 all: gibson
 
-gibson: main.o Renderer.o Windower.o PoolAllocator.o
-	$(CC)  main.o Renderer.o Windower.o PoolAllocator.o $(LINKER_FLAGS) $(FILE_TYPE) -o gibson
+gibson: main.o Renderer.o Windower.o PoolAllocator.o InputManager.o
+	$(CC)  main.o Renderer.o Windower.o PoolAllocator.o InputManager.o $(LINKER_FLAGS) $(FILE_TYPE) -o gibson
 
 PoolAllocator.o:
 	$(CC) $(SRC_PATH)PoolAllocator.cpp $(INCLUDE_PATHS) $(LIBRARY_PATHS) $(COMPILER_FLAGS) $(FILE_TYPE) -o PoolAllocator.o
@@ -44,6 +44,9 @@ Windower.o:
 
 Renderer.o:
 	$(CC) $(SRC_PATH)Renderer.cpp $(INCLUDE_PATHS) $(LIBRARY_PATHS) $(COMPILER_FLAGS) $(FILE_TYPE) -o Renderer.o
+
+InputManager.o:
+		$(CC) $(SRC_PATH)InputManager.cpp $(INCLUDE_PATHS) $(LIBRARY_PATHS) $(COMPILER_FLAGS) $(FILE_TYPE) -o InputManager.o
 
 main.o:
 	$(CC) $(SRC_PATH)main.cpp $(INCLUDE_PATHS) $(LIBRARY_PATHS) $(COMPILER_FLAGS) $(FILE_TYPE) -o main.o
