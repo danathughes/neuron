@@ -1,8 +1,12 @@
 #include <iostream>
 #include <Vect3.h>
 #include <Vect3-tests.h>
+#include <Triangle.h>
 
-void TestVect3Setup(float testX, float testY, float testZ, Vect3* testVect) {
+void TriangleSetup(float testX, float testY, float testZ, Vect3* testVect)) {
+  Vect3* vert1 = new Vect3(-0.5, -0.5, 0);
+  Vect3* vert2 = new Vect3(-0.5, 0.5, 0);
+  Vect3* vert3 = new Vect3(0.5, 0.5, 0);
   if(testVect->x != testX || testVect->y != testY || testVect->z != testZ) {
     std::cout << "FAIL: TestVect3Setup() \n";
     std::cout << testVect->x <<" != .5 \n";
@@ -14,8 +18,8 @@ void TestVect3Setup(float testX, float testY, float testZ, Vect3* testVect) {
   }
 }
 
-void TestVect3Move(Vect3* testVect, Vect3* distance, float testX, float testY, float testZ) {
-  testVect->Move(*distance);
+void TriangleMove(Vect3* distance, Triangle* testTriangles) {
+  testTriangle->Move(*distance);
   if(testVect->x != testX || testVect->y != testY || testVect->z != testZ) {
     std::cout << "FAIL: TestVect3Move() \n";
     std::cout << testVect->x <<" != .5 \n";
@@ -27,17 +31,8 @@ void TestVect3Move(Vect3* testVect, Vect3* distance, float testX, float testY, f
   }
 }
 
-void Vect3Tests() {
-  Vect3* testVect = new Vect3(.5, .4, .3);
-  float testX = .5;
-  float testY = .4;
-  float testZ = .3;
-  TestVect3Setup(testX, testY, testZ, testVect);
-
-  testVect = new Vect3(.5, .4, .3);
-  Vect3* distance = new Vect3(.5, .4, .3);
-  testX = 1.0;
-  testY = .8;
-  testZ = .6;
-  TestVect3Move(testVect, distance, testX, testY, testZ);
+void TriangleTests() {
+  // TriangleSetup();
+  Triangle* testTriangle = new Triangle(vert1, vert2, vert3);
+  TriangleMove();
 }

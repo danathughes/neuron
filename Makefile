@@ -46,13 +46,16 @@ all: gibson
 gibson: main.o Renderer.o Windower.o PoolAllocator.o InputManager.o LLNode.o Triangle.o Vect3.o SceneManager.o
 	$(CC)  main.o Renderer.o Windower.o PoolAllocator.o InputManager.o SceneManager.o $(LINKER_FLAGS) $(FILE_TYPE) -o gibson
 
-all_tests: tests.o Vect3-tests.o Vect3.o
-	$(CC) tests.o Vect3-tests.o Vect3.o $(LINKER_FLAGS) $(FILE_TYPE) -o all_tests
+all_tests: tests.o Vect3-tests.o Triangle-tests.o Triangle.o Vect3.o
+	$(CC) tests.o Vect3-tests.o Triangle-tests.o Triangle.o Vect3.o $(LINKER_FLAGS) $(FILE_TYPE) -o all_tests
 	./all_tests
 
 
 #######################################################################
 # Test objects
+
+Triangle-tests.o:
+	$(CC) $(TEST_PATH)Triangle-tests.cpp $(INCLUDE_PATHS) $(LIBRARY_PATHS) $(COMPILER_FLAGS) $(FILE_TYPE) -o Triangle-tests.o
 
 Vect3-tests.o:
 	$(CC) $(TEST_PATH)Vect3-tests.cpp $(INCLUDE_PATHS) $(LIBRARY_PATHS) $(COMPILER_FLAGS) $(FILE_TYPE) -o Vect3-tests.o
