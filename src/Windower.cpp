@@ -25,7 +25,7 @@ void Windower::StartUp(GLFWkeyfun callback)
 	glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
 	#ifdef __APPLE__
 	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
-	#endif __APPLE__
+	#endif // __APPLE__
 
 	// Create a GLFWwindow object that we can use for GLFW's functions
 	this->window = glfwCreateWindow(WIDTH, HEIGHT, "Gibson Engine", nullptr, nullptr);

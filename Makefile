@@ -43,8 +43,8 @@ run: all
 
 all: gibson
 
-gibson: main.o Renderer.o Windower.o PoolAllocator.o InputManager.o LLNode.o Triangle.o Vect3.o
-	$(CC)  main.o Renderer.o Windower.o PoolAllocator.o InputManager.o $(LINKER_FLAGS) $(FILE_TYPE) -o gibson
+gibson: main.o Renderer.o Windower.o PoolAllocator.o InputManager.o LLNode.o Triangle.o Vect3.o SceneManager.o
+	$(CC)  main.o Renderer.o Windower.o PoolAllocator.o InputManager.o SceneManager.o $(LINKER_FLAGS) $(FILE_TYPE) -o gibson
 
 all_tests: tests.o Vect3-tests.o Vect3.o
 	$(CC) tests.o Vect3-tests.o Vect3.o $(LINKER_FLAGS) $(FILE_TYPE) -o all_tests
@@ -83,6 +83,9 @@ Triangle.o:
 
 Vect3.o:
 	$(CC) $(SRC_PATH)Vect3.cpp $(INCLUDE_PATHS) $(LIBRARY_PATHS) $(COMPILER_FLAGS) $(FILE_TYPE) -o Vect3.o
+
+SceneManager.o:
+	$(CC) $(SRC_PATH)SceneManager.cpp $(INCLUDE_PATHS) $(LIBRARY_PATHS) $(COMPILER_FLAGS) $(FILE_TYPE) -o SceneManager.o
 
 main.o:
 	$(CC) $(SRC_PATH)main.cpp $(INCLUDE_PATHS) $(LIBRARY_PATHS) $(COMPILER_FLAGS) $(FILE_TYPE) -o main.o
