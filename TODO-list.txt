@@ -1,1 +1,3 @@
-- Refactor various subsystems to inherit from an abstract class Subsystem with pure virtual StartUp and ShutDown methods
+- Refactor various subsystems to inherit from an abstract class Subsystem with pure virtual StartUp and ShutDown methods.
+- Clean up makefile so I don't need to add a new line for every class I create.
+- Conventions are getting out of hand; clean them up and standardize.
