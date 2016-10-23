@@ -38,7 +38,7 @@ run: all
 
 all: gibson
 
-gibson: main.o Renderer.o Windower.o PoolAllocator.o InputManager.o
+gibson: main.o Renderer.o Windower.o PoolAllocator.o InputManager.o LLNode.o
 	$(CC)  main.o Renderer.o Windower.o PoolAllocator.o InputManager.o $(LINKER_FLAGS) $(FILE_TYPE) -o gibson
 
 PoolAllocator.o:
@@ -51,7 +51,10 @@ Renderer.o:
 	$(CC) $(SRC_PATH)Renderer.cpp $(INCLUDE_PATHS) $(LIBRARY_PATHS) $(COMPILER_FLAGS) $(FILE_TYPE) -o Renderer.o
 
 InputManager.o:
-		$(CC) $(SRC_PATH)InputManager.cpp $(INCLUDE_PATHS) $(LIBRARY_PATHS) $(COMPILER_FLAGS) $(FILE_TYPE) -o InputManager.o
+	$(CC) $(SRC_PATH)InputManager.cpp $(INCLUDE_PATHS) $(LIBRARY_PATHS) $(COMPILER_FLAGS) $(FILE_TYPE) -o InputManager.o
+
+LLNode.o:
+	$(CC) $(SRC_PATH)LLNode.cpp $(INCLUDE_PATHS) $(LIBRARY_PATHS) $(COMPILER_FLAGS) $(FILE_TYPE) -o LLNode.o
 
 main.o:
 	$(CC) $(SRC_PATH)main.cpp $(INCLUDE_PATHS) $(LIBRARY_PATHS) $(COMPILER_FLAGS) $(FILE_TYPE) -o main.o

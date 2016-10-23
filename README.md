@@ -1,8 +1,8 @@
 # The Gibson Engine
-A 3D game engine. 
+A 3D game engine.
 
 ## Roadmap
-Gibson is an iteratively developed project for the purpose of self-teaching game engine programming; the first major release will be written to support a simple first person game. The core focus of Gibson is the rendering subsystem, and to some extent the physics subsystem as well (the 1.0 release 
+Gibson is an iteratively developed project for the purpose of self-teaching game engine programming; the first major release will be written to support a simple first person game. The core focus of Gibson is the rendering subsystem, and to some extent the physics subsystem as well (the 1.0 release
 will use either a vastly oversimplified library just to get things moving, or a middleware solution like PhysX, whichever is easier).
 
 ## Directory structure
@@ -11,20 +11,20 @@ will use either a vastly oversimplified library just to get things moving, or a 
 - `lib/` - libraries for GLFW and GLEW
 
 ## Building
-You will need Git LFS to correctly pull the files in lib/. Once pulled, the only thing necessary should be to open the project in Visual Studio (VS2013 Express is the 
+You will need Git LFS to correctly pull the files in lib/. Once pulled, the only thing necessary should be to open the project in Visual Studio (VS2013 Express is the
 supported/tested version) and build/run.
 
-## Design choices 
+## Design choices
 - `const` is used [as liberally as possible](http://www.gamasutra.com/view/news/169296/Indepth_Functional_programming_in_C.php), especially for function input arguments
-- Use `const` variables instead of `#defines` 
+- Use `const` variables instead of `#defines`
 - use `#pragma once` instead of `#ifndef` guards
 - No opaque one-liners or "optimizations" that exploit operator precedence, especially with pointers; this is not a coding competition and you don't look as cool as you think.
 
 ## Conventions
 - Use capitalized camel case `LikeThis`, not `like_this` or `m_LikeThis`. Prefix globals with `g`, `gLikeThis`.
-- In class declarations, declare public, then private, attributes first, then methods (except constructors/destructors - place them last); everything should be in decending alphabetized order. 
+- In class declarations, declare public, then private, attributes first, then methods (except constructors/destructors - place them last); everything should be in decending alphabetized order.
 - For pointers and references, use `Type* thing` or `Type& thing`, not `Type *thing`.
-- Despite being technically unnecessary, if you call a method from within another method, preface it with `this->` so it's explicit that it's a method of that class. 
+- Despite being technically unnecessary, if you call a method from within another method, preface it with `this->` so it's explicit that it's a method of that class.
 - Return type, name, and args on one line followed by space and open brace:
 ```
 void function (herp flerp) {
@@ -41,3 +41,4 @@ Scott Meyers - *Effective C++*
 Herb Sutter, Andrei Alexandrescu - *C++ Coding Standards: 101 Rules, Guidelines, and Best Practices*  
 Joey de Vries - [Learn OpenGL Tutorials](http://learnopengl.com/)  
 Eric Haines, Gundega Dekena - [*Interactive 3D Graphics*](https://www.udacity.com/course/interactive-3d-graphics--cs291) (Udacity)  
+Ali Selcuk AKYUZ - [Linked Lists](http://www.cplusplus.com/articles/LACRko23/) (cplusplus.com)
