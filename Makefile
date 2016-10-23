@@ -20,6 +20,9 @@ OBJ_NAME = main
 # SRC specifies which files to compile as part of the project
 SRC_PATH = ./src/
 
+# TEST specifies which files to compile as part of the tests
+TEST_PATH = ./tests/
+
 # INCLUDE_PATHS specifies the additional include paths we'll need
 INCLUDE_PATHS = -I/opt/X11/include -I./headers -I./shaders
 #-I/usr/local/include
@@ -42,6 +45,23 @@ all: gibson
 
 gibson: main.o Renderer.o Windower.o PoolAllocator.o InputManager.o LLNode.o Triangle.o Vect3.o
 	$(CC)  main.o Renderer.o Windower.o PoolAllocator.o InputManager.o $(LINKER_FLAGS) $(FILE_TYPE) -o gibson
+
+all_tests: tests.o Vect3-tests.o Vect3.o
+	$(CC) tests.o Vect3-tests.o Vect3.o $(LINKER_FLAGS) $(FILE_TYPE) -o all_tests
+	./all_tests
+
+
+#######################################################################
+# Test objects
+
+Vect3-tests.o:
+	$(CC) $(TEST_PATH)Vect3-tests.cpp $(INCLUDE_PATHS) $(LIBRARY_PATHS) $(COMPILER_FLAGS) $(FILE_TYPE) -o Vect3-tests.o
+
+tests.o:
+	$(CC) $(TEST_PATH)tests.cpp $(INCLUDE_PATHS) $(LIBRARY_PATHS) $(COMPILER_FLAGS) $(FILE_TYPE) -o tests.o
+
+#######################################################################
+# Project objects
 
 PoolAllocator.o:
 	$(CC) $(SRC_PATH)PoolAllocator.cpp $(INCLUDE_PATHS) $(LIBRARY_PATHS) $(COMPILER_FLAGS) $(FILE_TYPE) -o PoolAllocator.o
@@ -68,4 +88,4 @@ main.o:
 	$(CC) $(SRC_PATH)main.cpp $(INCLUDE_PATHS) $(LIBRARY_PATHS) $(COMPILER_FLAGS) $(FILE_TYPE) -o main.o
 
 clean:
-	(rm *.o; rm headers/*.gch; rm gibson) || true
+	(rm *.o; rm headers/*.gch; rm all_tests; rm gibson) || true

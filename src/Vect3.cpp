@@ -18,7 +18,7 @@ Vect3::~Vect3()
 
 }
 
-Vect3::Move(Vect3 distance){
+void Vect3::Move(Vect3 distance){
   this->x += distance.x;
   this->y += distance.y;
   this->z += distance.z;
