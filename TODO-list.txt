@@ -1,0 +1,1 @@
+- Refactor various subsystems to inherit from an abstract class Subsystem with pure virtual StartUp and ShutDown methods
