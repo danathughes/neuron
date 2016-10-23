@@ -1,6 +1,6 @@
 #include <iostream>
 #include <Scene.h>
-#include <LinkedList.h>
+#include <LLNode.h>
 
 Scene::Scene() {
 
@@ -10,7 +10,7 @@ Scene::~Scene() {
 
 }
 
-LinkedList* Scene::AddObject(){
+LLNode* Scene::AddObject(){
 
 }
 

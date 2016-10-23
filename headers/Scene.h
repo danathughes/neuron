@@ -1,13 +1,13 @@
 #pragma once
 
-#include <LinkedList.h>
+#include <LLNode.h>
 
 class Scene
 {
 public:
-	LinkedList* objects;
+	LLNode* objects;
 	Scene();
 	~Scene();
-	LinkedList* AddObject();
+	LLNode* AddObject();
 	void RemoveObject();
 };
