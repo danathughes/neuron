@@ -31,7 +31,9 @@ LIBRARY_PATHS =  -I/opt/X11/lib -I./libs
 #######################################################################
 # Commands
 
-cycle: clean run
+rerun: clean run
+
+recompile: clean all
 
 run: all
 	./gibson
