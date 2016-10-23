@@ -31,6 +31,11 @@ LIBRARY_PATHS =  -I/opt/X11/lib -I./libs
 #######################################################################
 # Commands
 
+cycle: clean run
+
+run: all
+	./gibson
+
 all: gibson
 
 gibson: main.o Renderer.o Windower.o PoolAllocator.o InputManager.o
@@ -52,4 +57,4 @@ main.o:
 	$(CC) $(SRC_PATH)main.cpp $(INCLUDE_PATHS) $(LIBRARY_PATHS) $(COMPILER_FLAGS) $(FILE_TYPE) -o main.o
 
 clean:
-	rm *.o headers/*.gch gibson
+	(rm *.o; rm headers/*.gch; rm gibson) || true
