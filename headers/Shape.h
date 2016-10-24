@@ -1,9 +1,11 @@
 #pragma once
 
+#include <Vect3.h>
+
 class Shape
 {
 public:
-	Shape();
-	virtual ~Shape() = 0;
-  virtual void Move() = 0;
+//	Shape();
+//	~Shape();
+  virtual void Move(const Vect3 distance) = 0;
 };

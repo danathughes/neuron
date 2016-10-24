@@ -8,6 +8,13 @@ Vect3::Vect3(float x, float y, float z)
   this->z = z;
 }
 
+Vect3::Vect3(const Vect3* in_vect)
+{
+  this->x = in_vect->x;
+  this->y = in_vect->y;
+  this->z = in_vect->z;
+}
+
 Vect3::Vect3()
 {
 
@@ -22,4 +29,8 @@ void Vect3::Move(Vect3 distance){
   this->x += distance.x;
   this->y += distance.y;
   this->z += distance.z;
+}
+
+bool Vect3::isEqual(Vect3* otherVect) {
+  return (this->x == otherVect->x) &&  (this->y == otherVect->y) && (this->z == otherVect->z);
 }

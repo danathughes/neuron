@@ -2,28 +2,32 @@
 #include <Vect3.h>
 #include <Vect3-tests.h>
 
-void TestVect3Setup(float testX, float testY, float testZ, Vect3* testVect) {
+void Vect3Setup(float testX, float testY, float testZ, Vect3* testVect) {
   if(testVect->x != testX || testVect->y != testY || testVect->z != testZ) {
-    std::cout << "FAIL: TestVect3Setup() \n";
+    std::cout << "FAIL: Vect3Setup() \n";
     std::cout << testVect->x <<" != .5 \n";
     std::cout << testVect->y <<" != .4 \n";
     std::cout << testVect->z <<" != .3 \n";
   }
   else {
-    std::cout << "PASS: TestVect3Setup() \n";
+    std::cout << "PASS: Vect3Setup() \n";
   }
 }
 
-void TestVect3Move(Vect3* testVect, Vect3* distance, float testX, float testY, float testZ) {
+void Vect3IsEqual() {
+
+}
+
+void Vect3Move(Vect3* testVect, Vect3* distance, float testX, float testY, float testZ) {
   testVect->Move(*distance);
   if(testVect->x != testX || testVect->y != testY || testVect->z != testZ) {
-    std::cout << "FAIL: TestVect3Move() \n";
+    std::cout << "FAIL: Vect3Move() \n";
     std::cout << testVect->x <<" != .5 \n";
     std::cout << testVect->y <<" != .4 \n";
     std::cout << testVect->z <<" != .3 \n";
   }
   else {
-    std::cout << "PASS: TestVect3Move() \n";
+    std::cout << "PASS: Vect3Move() \n";
   }
 }
 
@@ -32,12 +36,14 @@ void Vect3Tests() {
   float testX = .5;
   float testY = .4;
   float testZ = .3;
-  TestVect3Setup(testX, testY, testZ, testVect);
+  Vect3Setup(testX, testY, testZ, testVect);
+
+  Vect3IsEqual();
 
   testVect = new Vect3(.5, .4, .3);
   Vect3* distance = new Vect3(.5, .4, .3);
   testX = 1.0;
   testY = .8;
   testZ = .6;
-  TestVect3Move(testVect, distance, testX, testY, testZ);
+  Vect3Move(testVect, distance, testX, testY, testZ);
 }

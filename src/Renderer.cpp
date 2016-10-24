@@ -62,7 +62,7 @@ void Renderer::InitializeDrawData()
 	// Set up vertex data (and buffer(s)) and attribute pointers (in CPU memory)
 	GLfloat vertices[] = {
 		-0.5f, -0.5f, 0.0f, // Bottom Left
-		0.5f, -0.5f, 0.0f, // Bottom Right
+	//	0.5f, -0.5f, 0.0f, // Bottom Right
 		-0.5f, 0.5f, 0.0f,  // Top Left
 		0.5f, 0.5f, 0.0f	// Top Right
 
