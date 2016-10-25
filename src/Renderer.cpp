@@ -1,5 +1,8 @@
-#include "Renderer.h"
 #include <iostream>
+
+#include <Subsystem.h>
+#include <Renderer.h>
+#include <Messages.h>
 
 // GLEW
 #define GLEW_STATIC
@@ -140,5 +143,10 @@ Renderer::Renderer()
 
 Renderer::~Renderer()
 {
+
+}
+
+
+void Renderer::HandleMessage(enum MESSAGE_TYPE msg, void* data) {
 
 }

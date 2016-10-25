@@ -20,6 +20,10 @@
     <ClInclude Include="headers\Shape.h" />
     <ClInclude Include="headers\Triangle.h" />
     <ClInclude Include="headers\Triangle-tests.h" />
+    <ClInclude Include="headers\Messages.h" />
+    <ClInclude Include="headers\MessageBus.h" />
+    <ClInclude Include="src\Messages.h" />
+    <ClInclude Include="headers\Subsystem.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Renderer.cpp" />
@@ -30,9 +34,8 @@
     <ClCompile Include="src\LLNode.cpp" />
     <ClCompile Include="src\SceneManager.cpp" />
     <ClCompile Include="src\Triangle.cpp" />
-    <ClCompile Include="tests\GibVect3-tests.cpp" />
-    <ClCompile Include="tests\tests.cpp" />
-    <ClCompile Include="tests\Triangle-tests.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\MessageBus.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitignore" />

@@ -1,27 +1,36 @@
+#include <iostream>
+
 #include <Renderer.h>
 #include <Windower.h>
 #include <InputManager.h>
 #include <SceneManager.h>
-#include <iostream>
+#include <MessageBus.h>
+#include <PoolAllocator.h>
 
 #define DEBUG
 
+PoolAllocator gPoolAllocator;
+MessageBus gMessageBus;
 InputManager gInputManager;
 Renderer gRenderer;
 Windower gWindower;
 SceneManager gSceneManager;
 
-
 int main(int argc, const char** argv){
+	gPoolAllocator = PoolAllocator();
 	gInputManager = InputManager();
 	gRenderer = Renderer();
 	gWindower = Windower();
 	gSceneManager = SceneManager();
+	gMessageBus = MessageBus();
+
 	// Start subsystems in the correct order
+	gPoolAllocator.StartUp();
 	gInputManager.StartUp();
 	gWindower.StartUp((GLFWkeyfun)gInputManager.GLFWKeyCallback); // NOTE: For some reason, Gibson crashes if you start the renderer after the windower??
 	gRenderer.StartUp();
 	gSceneManager.StartUp();
+	gMessageBus.StartUp(&gInputManager, &gRenderer, &gWindower, &gSceneManager, &gPoolAllocator);
 
 	// Begin game loop
 	std::cout << "Game is running! \n";

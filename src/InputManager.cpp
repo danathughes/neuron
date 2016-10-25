@@ -1,5 +1,9 @@
 #include <iostream>
+
+#include <Subsystem.h>
 #include <InputManager.h>
+#include <Messages.h>
+
 
 // GLEW
 #define GLEW_STATIC
@@ -49,5 +53,9 @@ void InputManager::GLFWKeyCallback(GLFWwindow* window, int key, int scancode, in
 	else {
 			std::cout << "Unrecognized key, ignoring.\n";
 	}
+
+}
+
+void InputManager::HandleMessage(enum MESSAGE_TYPE msg, void* data) {
 
 }

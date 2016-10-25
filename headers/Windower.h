@@ -1,5 +1,8 @@
 #pragma once
+
 #include <iostream>
+
+#include <Subsystem.h>
 #include <InputManager.h>
 
 // GLEW
@@ -9,7 +12,7 @@
 // GLFW
 #include <glfw3.h>
 
-class Windower
+class Windower : public Subsystem
 {
 public:
 	GLFWwindow* window;
@@ -17,4 +20,5 @@ public:
 	void ShutDown();
 	Windower();
 	~Windower();
+	void HandleMessage(MESSAGE_TYPE msg, void* data);
 };

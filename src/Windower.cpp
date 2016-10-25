@@ -1,7 +1,10 @@
 #include <iostream>
+
+#include <Subsystem.h>
 #include <Windower.h>
 #include <Renderer.h>
 #include <InputManager.h>
+#include <Messages.h>
 
 // GLEW
 #define GLEW_STATIC
@@ -56,5 +59,9 @@ Windower::Windower()
 
 Windower::~Windower()
 {
+
+}
+
+void Windower::HandleMessage(enum MESSAGE_TYPE msg, void* data) {
 
 }

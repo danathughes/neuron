@@ -1,0 +1,3 @@
+union MESSAGE_TYPES {
+	int DRAW_THING;
+};
