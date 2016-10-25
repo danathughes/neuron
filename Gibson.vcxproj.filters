@@ -12,12 +12,27 @@
     <ClInclude Include="headers\glfw3.h" />
     <ClInclude Include="headers\Windower.h" />
     <ClInclude Include="headers\PoolAllocator.h" />
+    <ClInclude Include="headers\GibVect3.h" />
+    <ClInclude Include="headers\GibVect3-tests.h" />
+    <ClInclude Include="headers\InputManager.h" />
+    <ClInclude Include="headers\LLNode.h" />
+    <ClInclude Include="headers\SceneManager.h" />
+    <ClInclude Include="headers\Shape.h" />
+    <ClInclude Include="headers\Triangle.h" />
+    <ClInclude Include="headers\Triangle-tests.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Renderer.cpp" />
     <ClCompile Include="src\Windower.cpp" />
     <ClCompile Include="src\PoolAllocator.cpp" />
+    <ClCompile Include="src\GibVect3.cpp" />
+    <ClCompile Include="src\InputManager.cpp" />
+    <ClCompile Include="src\LLNode.cpp" />
+    <ClCompile Include="src\SceneManager.cpp" />
+    <ClCompile Include="src\Triangle.cpp" />
+    <ClCompile Include="tests\GibVect3-tests.cpp" />
+    <ClCompile Include="tests\tests.cpp" />
+    <ClCompile Include="tests\Triangle-tests.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitignore" />
@@ -26,9 +41,14 @@
     <None Include="shaders\FragmentShader.h" />
     <None Include="shaders\VertexShader.h" />
     <None Include="libs\glew32.dll" />
+    <None Include=".gitattributes" />
+    <None Include="Makefile" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="libs\glfw3.lib" />
     <Library Include="libs\glew32s.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="TODO-list.txt" />
   </ItemGroup>
 </Project>

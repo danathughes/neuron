@@ -9,7 +9,7 @@ GibVect3::GibVect3()
 
 GibVect3::GibVect3(const float x, const float y, const float z)
 {
-	this->elements = std::vector<float>();
+	this->elements = std::vector<float>(3);
 	this->elements[0] = x;
 	this->elements[1] = y;
 	this->elements[2] = z;
@@ -17,7 +17,7 @@ GibVect3::GibVect3(const float x, const float y, const float z)
 
 GibVect3::GibVect3(const GibVect3* vect)
 {
-	this->elements = std::vector<float>();
+	this->elements = std::vector<float>(3);
 	this->elements[0] = vect->elements[0];
 	this->elements[1] = vect->elements[1];
 	this->elements[2] = vect->elements[2];
@@ -26,7 +26,7 @@ GibVect3::GibVect3(const GibVect3* vect)
 
 GibVect3::GibVect3(const std::vector<float>* vect)
 {
-	this->elements = std::vector<float>();
+	this->elements = std::vector<float>(3);
 	this->elements[0] = vect->at(0);
 	this->elements[1] = vect->at(1);
 	this->elements[2] = vect->at(2);
