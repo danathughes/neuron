@@ -1,11 +1,11 @@
 #pragma once
 
-#include <Vect3.h>
+#include <GibVect3.h>
 
 class Shape
 {
 public:
 //	Shape();
 //	~Shape();
-  virtual void Move(const Vect3 distance) = 0;
+	virtual void Move(const GibVect3 distance) = 0;
 };
