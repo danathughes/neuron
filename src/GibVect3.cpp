@@ -68,5 +68,8 @@ void GibVect3::Add(const GibVect3* const distance) {
 }
 
 bool GibVect3::isEqual(const GibVect3* const otherVect) const {
+	std::cout << "this->x(): " << this->x() << " || otherVect->x(): " << otherVect->x() << "\n";
+	std::cout << "this->y(): " << this->y() << " || otherVect->y(): " << otherVect->y() << "\n";
+	std::cout << "this->z(): " << this->z() << " || otherVect->z(): " << otherVect->z() << "\n";
 	return (this->x() == otherVect->x()) && (this->y() == otherVect->y()) && (this->z() == otherVect->z());
 }
