@@ -16,7 +16,7 @@ class LLNode
     LLNode<T>* DeleteAfter();
     LLNode<T>* GetNode(const T& item, LLNode<T>* nextptr = NULL);
 
-		T data;
+		T* data;
   private:
     LLNode<T>* next;
 };

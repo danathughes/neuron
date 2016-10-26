@@ -24,4 +24,5 @@ void Triangle::Move(const GibVect3* const distance){
   this->vert1->Add(distance);
   this->vert2->Add(distance);
   this->vert3->Add(distance);
+  this->dirty = true;
 }

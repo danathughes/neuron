@@ -59,6 +59,10 @@ void Renderer::InitializeShaders()
 	glDeleteShader(fragmentShader);
 }
 
+void Renderer::BufferData(const LLNode<Triangle>* const scene) {
+
+}
+
 void Renderer::InitializeDrawData()
 {
 	// Set up vertex data (and buffer(s)) and attribute pointers (in CPU memory)
@@ -149,4 +153,11 @@ Renderer::~Renderer()
 
 void Renderer::HandleMessage(enum MESSAGE_TYPE msg, void* data) {
 	std::cout << "Renderer: I received a message! It contains data: " << *(int*)data << "\n";
+	switch (msg) {
+		case REBUFFER_DATA:
+			this->BufferData((LLNode<Triangle>*)data);
+			break;
+		default:
+			break;
+	}
 }

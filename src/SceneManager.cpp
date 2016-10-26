@@ -32,6 +32,15 @@ void SceneManager::RemoveObject(LLNode<Triangle>* object) {
 
 }
 
+void SceneManager::CheckObjects() {
+	LLNode<Triangle>* object = this->scene;
+	while (object != nullptr){
+		if (object->data->dirty == true){
+			this->msgBus->PostMessage(MESSAGE_TYPE::REBUFFER_DATA, SYSTEM_TYPE::RENDERER, this->scene);
+		}
+	}
+}
+
 void SceneManager::HandleMessage(enum MESSAGE_TYPE msg, void* data) {
 	std::cout << "SceneManager: I received a message! It contains data: " << *(int*)data << "\n";
 

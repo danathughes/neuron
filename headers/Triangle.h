@@ -13,4 +13,5 @@ public:
 	GibVect3* vert1;
 	GibVect3* vert2;
 	GibVect3* vert3;
+	bool dirty;
 };

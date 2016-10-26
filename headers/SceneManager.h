@@ -16,6 +16,7 @@ public:
 	void AddObject(LLNode<Triangle>* object);
 	void RemoveObject(LLNode<Triangle>* object);
 	void HandleMessage(enum MESSAGE_TYPE msg, void* data);
+	void CheckObjects();
 private:
 	LLNode<Triangle>* scene;
 };
