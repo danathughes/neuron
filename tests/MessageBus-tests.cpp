@@ -6,8 +6,7 @@
 #include <SceneManager.h>
 #include <MessageBus.h>
 #include <PoolAllocator.h>
-
-#define DEBUG
+#include <Messages.h>
 
 PoolAllocator gPoolAllocator;
 MessageBus gMessageBus;
@@ -16,7 +15,7 @@ Renderer gRenderer;
 Windower gWindower;
 SceneManager gSceneManager;
 
-int main(int argc, const char** argv){
+void MessageBusTests(){
 	gPoolAllocator = PoolAllocator();
 	gInputManager = InputManager();
 	gRenderer = Renderer();
@@ -32,17 +31,6 @@ int main(int argc, const char** argv){
 	gSceneManager.StartUp(&gMessageBus);
 	gMessageBus.StartUp(&gInputManager, &gRenderer, &gWindower, &gSceneManager, &gPoolAllocator);
 
-	// Begin game loop
-	std::cout << "Game is running! \n";
-	gRenderer.DrawLoop(gWindower.window, gRenderer.shaderProgram, gRenderer.VAO, gRenderer.VBO);
-
-	// Shut down systems in the correct order
-	gSceneManager.ShutDown();
-	gWindower.ShutDown();
-	gRenderer.ShutDown();
-	gInputManager.ShutDown();
-	gMessageBus.ShutDown();
-	std::cout << "Termination successful, press any key to close. \n";
-	getchar();
-	return 0;
+	int foo = 1;
+	gWindower.msgBus->PostMessage(MESSAGE_TYPE::DRAW_THING, SYSTEM_TYPE::RENDERER, &foo);
 }

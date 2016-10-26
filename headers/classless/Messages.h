@@ -1,11 +1,11 @@
 #pragma once
 
-enum MESSAGE_TYPES {
+enum MESSAGE_TYPE {
 	DRAW_THING = 1,
 	NOT_IMPLEMENTED = 2
 };
 
-enum SYSTEM_TYPES {
+enum SYSTEM_TYPE {
 	INPUT_MANAGER = 1,
 	POOL_ALLOCATOR = 2,
 	RENDERER = 3,

@@ -3,6 +3,7 @@
 #include <Subsystem.h>
 #include <InputManager.h>
 #include <Messages.h>
+#include <MessageBus.h>
 
 
 // GLEW
@@ -12,9 +13,10 @@
 // GLFW
 #include <glfw3.h>
 
-void InputManager::StartUp()
+void InputManager::StartUp(MessageBus* mb)
 {
 	std::cout << "Starting input manager.\n";
+	this->msgBus = mb;
 }
 
 void InputManager::ShutDown()
@@ -57,5 +59,5 @@ void InputManager::GLFWKeyCallback(GLFWwindow* window, int key, int scancode, in
 }
 
 void InputManager::HandleMessage(enum MESSAGE_TYPE msg, void* data) {
-
+	std::cout << "InputManager: I received a message! It contains data: " << *(int*)data << "\n";
 }

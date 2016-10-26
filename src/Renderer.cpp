@@ -3,6 +3,7 @@
 #include <Subsystem.h>
 #include <Renderer.h>
 #include <Messages.h>
+#include <MessageBus.h>
 
 // GLEW
 #define GLEW_STATIC
@@ -18,7 +19,6 @@
 
 void Renderer::InitializeShaders()
 {
-	std::cout << "Renderer::InitializeShaders()\n";
 	// Build and compile our shader program
 	// Vertex shader
 	GLuint vertexShader = glCreateShader(GL_VERTEX_SHADER);
@@ -61,7 +61,6 @@ void Renderer::InitializeShaders()
 
 void Renderer::InitializeDrawData()
 {
-	std::cout << "Renderer::InitializeDrawData()\n";
 	// Set up vertex data (and buffer(s)) and attribute pointers (in CPU memory)
 	GLfloat vertices[] = {
 		-0.5f, -0.5f, 0.0f, // Bottom Left
@@ -124,9 +123,10 @@ void Renderer::DrawLoop(GLFWwindow* window, const GLuint shaderProgram, const GL
 	glfwTerminate();
 }
 
-void Renderer::StartUp()
+void Renderer::StartUp(MessageBus* mb)
 {
 	std::cout << "Starting rendering subsystem.\n";
+	this->msgBus = mb;
 	this->InitializeShaders();
 	this->InitializeDrawData();
 }
@@ -148,5 +148,5 @@ Renderer::~Renderer()
 
 
 void Renderer::HandleMessage(enum MESSAGE_TYPE msg, void* data) {
-
+	std::cout << "Renderer: I received a message! It contains data: " << *(int*)data << "\n";
 }

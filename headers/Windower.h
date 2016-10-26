@@ -12,11 +12,13 @@
 // GLFW
 #include <glfw3.h>
 
+class MessageBus; // Fwd declaration to avoid compiler error, see MessageBus.h/.cpp
+
 class Windower : public Subsystem
 {
 public:
 	GLFWwindow* window;
-	void StartUp(GLFWkeyfun callback);
+	void StartUp(GLFWkeyfun callback, MessageBus* mb);
 	void ShutDown();
 	Windower();
 	~Windower();

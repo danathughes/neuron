@@ -9,6 +9,8 @@
 // GLFW
 #include <glfw3.h>
 
+class MessageBus; // Fwd declaration to avoid compiler error, see MessageBus.h/.cpp
+
 class Renderer : public Subsystem
 {
 public:
@@ -21,7 +23,7 @@ public:
 	void HandleMessage(enum MESSAGE_TYPE msg, void* data);
 	void InitializeDrawData();
 	void InitializeShaders();
-	void StartUp();
+	void StartUp(MessageBus* mb);
 	void ShutDown();
 	Renderer();
 	~Renderer();
