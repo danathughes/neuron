@@ -8,18 +8,22 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="headers\Renderer.h" />
-    <ClInclude Include="headers\glew.h" />
-    <ClInclude Include="headers\glfw3.h" />
     <ClInclude Include="headers\Windower.h" />
     <ClInclude Include="headers\PoolAllocator.h" />
     <ClInclude Include="headers\GibVect3.h" />
-    <ClInclude Include="headers\GibVect3-tests.h" />
     <ClInclude Include="headers\InputManager.h" />
     <ClInclude Include="headers\LLNode.h" />
     <ClInclude Include="headers\SceneManager.h" />
-    <ClInclude Include="headers\Shape.h" />
     <ClInclude Include="headers\Triangle.h" />
-    <ClInclude Include="headers\Triangle-tests.h" />
+    <ClInclude Include="headers\MessageBus.h" />
+    <ClInclude Include="headers\tests\GibVect3-tests.h" />
+    <ClInclude Include="headers\lib\glew.h" />
+    <ClInclude Include="headers\lib\glfw3.h" />
+    <ClInclude Include="headers\tests\MessageBus-tests.h" />
+    <ClInclude Include="headers\tests\Triangle-tests.h" />
+    <ClInclude Include="headers\classless\Shape.h" />
+    <ClInclude Include="headers\classless\Subsystem.h" />
+    <ClInclude Include="headers\classless\Messages.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Renderer.cpp" />
@@ -30,9 +34,8 @@
     <ClCompile Include="src\LLNode.cpp" />
     <ClCompile Include="src\SceneManager.cpp" />
     <ClCompile Include="src\Triangle.cpp" />
-    <ClCompile Include="tests\GibVect3-tests.cpp" />
-    <ClCompile Include="tests\tests.cpp" />
-    <ClCompile Include="tests\Triangle-tests.cpp" />
+    <ClCompile Include="src\MessageBus.cpp" />
+    <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitignore" />

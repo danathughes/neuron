@@ -34,17 +34,17 @@ void GibVect3Add(GibVect3* testGibVect, const GibVect3* const distance, float te
 
 void GibVect3Tests() {
 	GibVect3* testGibVect = new GibVect3(.5, .4, .3);
-  float testX = .5;
-  float testY = .4;
-  float testZ = .3;
-  GibVect3Setup(testX, testY, testZ);
+	float testX = .5;
+	float testY = .4;
+	float testZ = .3;
+	GibVect3Setup(testX, testY, testZ);
 
-  GibVect3IsEqual();
+	GibVect3IsEqual();
 
-  testGibVect = new GibVect3(.5, .4, .3);
-  GibVect3* distance = new GibVect3(.5, .4, .3);
-  testX = 1.0;
-  testY = .8;
-  testZ = .6;
-  GibVect3Add(testGibVect, distance, testX, testY, testZ);
+	testGibVect = new GibVect3(.5, .4, .3);
+	GibVect3* distance = new GibVect3(.5, .4, .3);
+	testX = 1.0;
+	testY = .8;
+	testZ = .6;
+	GibVect3Add(testGibVect, distance, testX, testY, testZ);
 }

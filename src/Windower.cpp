@@ -1,7 +1,11 @@
 #include <iostream>
+
+#include <Subsystem.h>
 #include <Windower.h>
 #include <Renderer.h>
 #include <InputManager.h>
+#include <Messages.h>
+#include <MessageBus.h>
 
 // GLEW
 #define GLEW_STATIC
@@ -13,9 +17,11 @@
 // Window dimensions
 const GLuint WIDTH = 1200, HEIGHT = 800;
 
-void Windower::StartUp(GLFWkeyfun callback)
+void Windower::StartUp(GLFWkeyfun callback, MessageBus* mb)
 {
 	std::cout << "Starting windowing subsystem.\n";
+	this->msgBus = mb;
+
 	// Init GLFW
 	glfwInit();
 	// Set all the required options for GLFW
@@ -57,4 +63,8 @@ Windower::Windower()
 Windower::~Windower()
 {
 
+}
+
+void Windower::HandleMessage(enum MESSAGE_TYPE msg, void* data) {
+	std::cout << "Windower: I received a message! It contains data: " << *(int*)data << "\n";
 }
