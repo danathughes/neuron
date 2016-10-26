@@ -35,7 +35,10 @@
     <ClCompile Include="src\SceneManager.cpp" />
     <ClCompile Include="src\Triangle.cpp" />
     <ClCompile Include="src\MessageBus.cpp" />
-    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="tests\GibVect3-tests.cpp" />
+    <ClCompile Include="tests\MessageBus-tests.cpp" />
+    <ClCompile Include="tests\tests.cpp" />
+    <ClCompile Include="tests\Triangle-tests.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitignore" />

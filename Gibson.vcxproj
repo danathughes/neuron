@@ -33,7 +33,7 @@
     <ClCompile Include="src\GibVect3.cpp" />
     <ClCompile Include="src\InputManager.cpp" />
     <ClCompile Include="src\LLNode.cpp" />
-    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\main\main.cpp" />
     <ClCompile Include="src\MessageBus.cpp" />
     <ClCompile Include="src\PoolAllocator.cpp" />
     <ClCompile Include="src\Renderer.cpp" />
