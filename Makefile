@@ -44,7 +44,7 @@ clean:
 
 #Make and run the engine
 gibson: main.o Renderer.o Windower.o PoolAllocator.o InputManager.o LLNode.o Triangle.o GibVect3.o SceneManager.o MessageBus.o
-	$(CC)  main.o Renderer.o Windower.o PoolAllocator.o InputManager.o SceneManager.o MessageBus.o $(LINKER_FLAGS) $(FILE_TYPE) -o gibson
+	$(CC)  main.o Renderer.o Windower.o PoolAllocator.o InputManager.o GibVect3.o Triangle.o SceneManager.o MessageBus.o  $(LINKER_FLAGS) $(FILE_TYPE) -o gibson
 	./gibson
 
 retest: clean all_tests
@@ -57,7 +57,7 @@ rerun: clean gibson
 GibVect3-tests.o:
 	$(CC) $(TEST_PATH)GibVect3-tests.cpp $(INCLUDE_PATHS) $(LIBRARY_PATHS) $(COMPILER_FLAGS) $(FILE_TYPE) -o GibVect3-tests.o
 
-MessageBus-tests.o: 
+MessageBus-tests.o:
 	$(CC) $(TEST_PATH)MessageBus-tests.cpp $(INCLUDE_PATHS) $(LIBRARY_PATHS) $(COMPILER_FLAGS) $(FILE_TYPE) -o MessageBus-tests.o
 
 Triangle-tests.o:

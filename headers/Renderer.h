@@ -1,6 +1,8 @@
 #pragma once
 
 #include <Subsystem.h>
+#include <LLNode.h>
+#include <Triangle.h>
 
 // GLEW
 #define GLEW_STATIC

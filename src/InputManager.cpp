@@ -37,22 +37,22 @@ InputManager::~InputManager()
 
 void InputManager::UpArrow() const
 {
-	this->msgBus->PostMessage(MESSAGE_TYPE::MOVE_UP, SYSTEM_TYPE::SCENE_MANAGER, void*)
+	this->msgBus->PostMessage(MESSAGE_TYPE::MOVE_UP, SYSTEM_TYPE::SCENE_MANAGER, nullptr);
 }
 
 void InputManager::DownArrow() const
 {
-	this->msgBus->PostMessage(MESSAGE_TYPE::MOVE_DOWN, SYSTEM_TYPE::SCENE_MANAGER, void*)
+	this->msgBus->PostMessage(MESSAGE_TYPE::MOVE_DOWN, SYSTEM_TYPE::SCENE_MANAGER, nullptr);
 }
 
 void InputManager::RightArrow() const
 {
-	this->msgBus->PostMessage(MESSAGE_TYPE::MOVE_RIGHT, SYSTEM_TYPE::SCENE_MANAGER, void*)
+	this->msgBus->PostMessage(MESSAGE_TYPE::MOVE_RIGHT, SYSTEM_TYPE::SCENE_MANAGER, nullptr);
 }
 
 void InputManager::LeftArrow() const
 {
-	this->msgBus->PostMessage(MESSAGE_TYPE::MOVE_LEFT SYSTEM_TYPE::SCENE_MANAGER, void*)
+	this->msgBus->PostMessage(MESSAGE_TYPE::MOVE_LEFT, SYSTEM_TYPE::SCENE_MANAGER, nullptr);
 }
 
 void InputManager::GLFWKeyCallback(GLFWwindow* window, int key, int scancode, int action, int mode)

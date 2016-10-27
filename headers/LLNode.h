@@ -8,6 +8,7 @@ template<class T>
 class LLNode
 {
 	public:
+		LLNode();
 		LLNode(const T& item, LLNode<T>* ptrnext = NULL);
 		~LLNode();
 

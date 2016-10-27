@@ -27,7 +27,9 @@ int main(int argc, const char** argv){
 	// Start subsystems in the correct order
 	gPoolAllocator.StartUp(&gMessageBus);
 	gInputManager.StartUp(&gMessageBus);
-	gWindower.StartUp((GLFWkeyfun)gInputManager.GLFWKeyCallback, &gMessageBus); // NOTE: For some reason, Gibson crashes if you start the renderer after the windower??
+
+	void (InputManager::*fptr)(GLFWwindow*, int, int, int, int) = &InputManager::GLFWKeyCallback; // I hate this line and everything about GLFW callbacks; implemented from http://www.codeguru.com/cpp/cpp/article.php/c17401/C-Tutorial-PointertoMember-Function.htm
+	gWindower.StartUp((GLFWkeyfun)(gInputManager.*fptr), &gMessageBus); // NOTE: For some reason, Gibson crashes if you start the renderer after the windower??
 	gRenderer.StartUp(&gMessageBus);
 	gSceneManager.StartUp(&gMessageBus);
 	gMessageBus.StartUp(&gInputManager, &gRenderer, &gWindower, &gSceneManager, &gPoolAllocator);

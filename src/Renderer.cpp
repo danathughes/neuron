@@ -71,7 +71,7 @@ void Renderer::BufferData(const LLNode<Triangle>* const scene) {
 	};
 	this->vertices = vertices;
 	*/
-	vertices = scene->data->BufferData();
+	GLfloat* vertices = (GLfloat*)scene->data->BufferData();
 
 
 	// Allocate reference for our Vertex Array/Attribute Object
