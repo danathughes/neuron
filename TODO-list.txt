@@ -2,3 +2,6 @@
 - Clean up makefile so I don't need to add a new line for every class I create.
 - Clean up makefile so dependencies are easily listed for tests
 - Conventions are getting out of hand; clean them up and standardize.
+
+- See this guy's engine: https://github.com/danielunderwood/glfw-game-engine
+- and the associated build system (how tf do you use these? https://travis-ci.org/danielunderwood/glfw-game-engine)
