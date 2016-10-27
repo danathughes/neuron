@@ -25,13 +25,14 @@ void SceneManager::StartUp(MessageBus* mb) {
 	GibVect3* vert3 = new GibVect3(0.5f, 0.5f, 0.0f);	// Top Right
 	Triangle* sceneObj = new Triangle(vert1, vert2, vert3);
 	this->scene = new LLNode<Triangle>(sceneObj, nullptr);
-	delete(vert1);
-	delete(vert2);
-	delete(vert3);
-	delete(sceneObj);
+	//delete(vert1);
+	//delete(vert2);
+	//delete(vert3);
+	//delete(sceneObj);
 
 	// Tell the renderer to draw the first frame of the scene
-	this->msgBus->PostMessage(MESSAGE_TYPE::REBUFFER_DATA, SYSTEM_TYPE::RENDERER, this->scene);
+	// FIXME: Can't do this before the MB starts up!
+	//this->msgBus->PostMessage(MESSAGE_TYPE::REBUFFER_DATA, SYSTEM_TYPE::RENDERER, this->scene);
 }
 
 void SceneManager::ShutDown() {
@@ -50,7 +51,7 @@ void SceneManager::CheckObjects() {
 	LLNode<Triangle>* object = this->scene;
 	while (object != nullptr){
 		if (object->data->dirty == true){
-			this->msgBus->PostMessage(MESSAGE_TYPE::REBUFFER_DATA, SYSTEM_TYPE::RENDERER, this->scene);
+			this->msgBus->PostMessage(MESSAGE_TYPE::READY, SYSTEM_TYPE::RENDERER, nullptr);
 			break;
 		}
 	}
@@ -82,6 +83,10 @@ void SceneManager::HandleMessage(enum MESSAGE_TYPE msg, void* data) {
 			distance = new GibVect3(1.0, 0.0, 0);
 			this->scene->data->Move(distance);
 			delete(distance);
+			this->msgBus->PostMessage(MESSAGE_TYPE::REBUFFER_DATA, SYSTEM_TYPE::RENDERER, this->scene);
+			break;
+		case READY:
+			// Now initialize the scene
 			this->msgBus->PostMessage(MESSAGE_TYPE::REBUFFER_DATA, SYSTEM_TYPE::RENDERER, this->scene);
 			break;
 		default:
