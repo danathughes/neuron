@@ -18,6 +18,11 @@ public:
 	~InputManager();
 	void StartUp(MessageBus* mb);
 	void ShutDown();
+	void UpArrow();
+	void DownArrow();
+	void LeftArrow();
+	void RightArrow();
+
 	static void GLFWKeyCallback(GLFWwindow* window, int key, int scancode, int action, int mode);
 	void HandleMessage(enum MESSAGE_TYPE msg, void* data);
 };

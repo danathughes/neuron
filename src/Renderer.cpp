@@ -60,12 +60,8 @@ void Renderer::InitializeShaders()
 }
 
 void Renderer::BufferData(const LLNode<Triangle>* const scene) {
-
-}
-
-void Renderer::InitializeDrawData()
-{
 	// Set up vertex data (and buffer(s)) and attribute pointers (in CPU memory)
+	/*
 	GLfloat vertices[] = {
 		-0.5f, -0.5f, 0.0f, // Bottom Left
 	//	0.5f, -0.5f, 0.0f, // Bottom Right
@@ -74,6 +70,9 @@ void Renderer::InitializeDrawData()
 
 	};
 	this->vertices = vertices;
+	*/
+	vertices = scene->data->BufferData();
+
 
 	// Allocate reference for our Vertex Array/Attribute Object
 	glGenVertexArrays(1, &this->VAO);
@@ -95,6 +94,8 @@ void Renderer::InitializeDrawData()
 	glBindBuffer(GL_ARRAY_BUFFER, 0); // Note that this is allowed, the call to glVertexAttribPointer registered VBO as the currently bound vertex buffer object so afterwards we can safely unbind
 
 	glBindVertexArray(0); // Unbind VAO (it's always a good thing to unbind any buffer/array to prevent strange bugs)
+
+	delete(vertices);
 
 }
 
@@ -132,7 +133,6 @@ void Renderer::StartUp(MessageBus* mb)
 	std::cout << "Starting rendering subsystem.\n";
 	this->msgBus = mb;
 	this->InitializeShaders();
-	this->InitializeDrawData();
 }
 
 void Renderer::ShutDown()

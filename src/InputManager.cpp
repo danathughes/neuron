@@ -35,22 +35,42 @@ InputManager::~InputManager()
 
 }
 
+void InputManager::UpArrow() const
+{
+	this->msgBus->PostMessage(MESSAGE_TYPE::MOVE_UP, SYSTEM_TYPE::SCENE_MANAGER, void*)
+}
+
+void InputManager::DownArrow() const
+{
+	this->msgBus->PostMessage(MESSAGE_TYPE::MOVE_DOWN, SYSTEM_TYPE::SCENE_MANAGER, void*)
+}
+
+void InputManager::RightArrow() const
+{
+	this->msgBus->PostMessage(MESSAGE_TYPE::MOVE_RIGHT, SYSTEM_TYPE::SCENE_MANAGER, void*)
+}
+
+void InputManager::LeftArrow() const
+{
+	this->msgBus->PostMessage(MESSAGE_TYPE::MOVE_LEFT SYSTEM_TYPE::SCENE_MANAGER, void*)
+}
+
 void InputManager::GLFWKeyCallback(GLFWwindow* window, int key, int scancode, int action, int mode)
 {
 	if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS) {
 			glfwSetWindowShouldClose(window, GL_TRUE);
 	}
 	else if (key == GLFW_KEY_UP && action == GLFW_PRESS) {
-
+		this->UpArrow();
 	}
 	else if (key == GLFW_KEY_DOWN && action == GLFW_PRESS) {
-
+		this->DownArrow();
 	}
 	else if (key == GLFW_KEY_LEFT && action == GLFW_PRESS) {
-
+		this->LeftArrow();
 	}
 	else if (key == GLFW_KEY_RIGHT && action == GLFW_PRESS) {
-
+		this->RightArrow();
 	}
 	else {
 			std::cout << "Unrecognized key, ignoring.\n";
