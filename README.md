@@ -40,7 +40,7 @@ void function (herp flerp) {
 Feel free to send pull requests! I am always interested in collaborating.
 
 ## Questions
-Contact me in some way through the links provided on [my personal page](jsgoller1.github.io).
+Contact me in some way through the links provided on [my personal page](https://jsgoller1.github.io).
 
 ## License
 Gibson is and always will be free, and therefore released under the GNU GPL v3.
