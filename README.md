@@ -13,10 +13,10 @@ will use either a vastly oversimplified library just to get things moving, or a 
 ## Building
 You will need Git LFS to correctly pull the files in lib/, regardless of the platform.
 
-*Windows*
+**Windows**  
 Requires Visual Studio (2013 express). The libraries for GLFW and GLEW are in /lib, so you shouldn't have to install anything; simply open the vcxproj file in VS and build/run the project.
 
-*Mac OSX (El Capitan)*
+**Mac OSX (El Capitan)**  
 Requires GNU Make, GCC, GLEW, and GLFW; the first two are Homebrew-able, see learnopengl.com for the other two. Once you have the dependencies met, run `make gibson`.
 
 ## Design choices
