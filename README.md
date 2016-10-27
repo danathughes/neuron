@@ -11,8 +11,13 @@ will use either a vastly oversimplified library just to get things moving, or a 
 - `lib/` - libraries for GLFW and GLEW
 
 ## Building
-You will need Git LFS to correctly pull the files in lib/. Once pulled, the only thing necessary should be to open the project in Visual Studio (VS2013 Express is the
-supported/tested version) and build/run.
+You will need Git LFS to correctly pull the files in lib/, regardless of the platform.
+
+**Windows**  
+Requires Visual Studio (2013 express). The libraries for GLFW and GLEW are in /lib, so you shouldn't have to install anything; simply open the vcxproj file in VS and build/run the project.
+
+**Mac OSX (El Capitan)**  
+Requires GNU Make, GCC, GLEW, and GLFW; the first two are Homebrew-able, see learnopengl.com for the other two. Once you have the dependencies met, run `make gibson`.
 
 ## Design choices
 - `const` is used [as liberally as possible](http://www.gamasutra.com/view/news/169296/Indepth_Functional_programming_in_C.php), especially for function input arguments
@@ -31,6 +36,12 @@ void function (herp flerp) {
 
 }
 ```
+## Contributing
+Feel free to send pull requests! I am always interested in collaborating.
+
+## Questions
+Contact me in some way through the links provided on [my personal page](https://jsgoller1.github.io).
+
 ## License
 Gibson is and always will be free, and therefore released under the GNU GPL v3.
 
@@ -41,4 +52,6 @@ Scott Meyers - *Effective C++*
 Herb Sutter, Andrei Alexandrescu - *C++ Coding Standards: 101 Rules, Guidelines, and Best Practices*  
 Joey de Vries - [Learn OpenGL Tutorials](http://learnopengl.com/)  
 Eric Haines, Gundega Dekena - [*Interactive 3D Graphics*](https://www.udacity.com/course/interactive-3d-graphics--cs291) (Udacity)  
-Ali Selcuk AKYUZ - [Linked Lists](http://www.cplusplus.com/articles/LACRko23/) (cplusplus.com)
+Ali Selcuk AKYUZ - [Linked Lists](http://www.cplusplus.com/articles/LACRko23/) (cplusplus.com)  
+Michael Kissner - *[Writing a Game Engine from Scratch](http://www.gamasutra.com/blogs/MichaelKissner/20151027/257369/Writing_a_Game_Engine_from_Scratch__Part_1_Messaging.php)* (Gamasutra)  
+John Carmack - [.plan files](https://github.com/Jsgoller1/john-carmack-plan-archive) and *[In-depth: Functional programming in C++](http://www.gamasutra.com/view/news/169296/Indepth_Functional_programming_in_C.php)* (Gamasutra)  
