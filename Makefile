@@ -35,8 +35,8 @@ LIBRARY_PATHS =  -I/opt/X11/lib -I./libs
 # Commands
 
 # Make and run the tests
-all_tests: tests.o GibVect3-tests.o GibVect3.o Triangle-tests.o Triangle.o MessageBus-tests.o MessageBus.o
-	$(CC) tests.o GibVect3-tests.o GibVect3.o Triangle-tests.o Triangle.o MessageBus-tests.o MessageBus.o $(LINKER_FLAGS) $(FILE_TYPE) -o all_tests
+all_tests: tests.o GibVect3-tests.o GibVect3.o Triangle-tests.o Triangle.o MessageBus-tests.o MessageBus.o Renderer.o Windower.o PoolAllocator.o InputManager.o SceneManager.o
+	$(CC) tests.o GibVect3-tests.o GibVect3.o Triangle-tests.o Triangle.o MessageBus-tests.o MessageBus.o Renderer.o Windower.o PoolAllocator.o InputManager.o SceneManager.o $(LINKER_FLAGS) $(FILE_TYPE) -o all_tests
 	./all_tests
 
 clean:
@@ -57,7 +57,7 @@ rerun: clean gibson
 GibVect3-tests.o:
 	$(CC) $(TEST_PATH)GibVect3-tests.cpp $(INCLUDE_PATHS) $(LIBRARY_PATHS) $(COMPILER_FLAGS) $(FILE_TYPE) -o GibVect3-tests.o
 
-MessageBus-tests.o:
+MessageBus-tests.o: 
 	$(CC) $(TEST_PATH)MessageBus-tests.cpp $(INCLUDE_PATHS) $(LIBRARY_PATHS) $(COMPILER_FLAGS) $(FILE_TYPE) -o MessageBus-tests.o
 
 Triangle-tests.o:
@@ -70,7 +70,7 @@ tests.o:
 # Project objects
 
 GibVect3.o:
-	$(CC) $(SRC_PATH)Vect3.cpp $(INCLUDE_PATHS) $(LIBRARY_PATHS) $(COMPILER_FLAGS) $(FILE_TYPE) -o GibVect3.o
+	$(CC) $(SRC_PATH)GibVect3.cpp $(INCLUDE_PATHS) $(LIBRARY_PATHS) $(COMPILER_FLAGS) $(FILE_TYPE) -o GibVect3.o
 
 InputManager.o:
 	$(CC) $(SRC_PATH)InputManager.cpp $(INCLUDE_PATHS) $(LIBRARY_PATHS) $(COMPILER_FLAGS) $(FILE_TYPE) -o InputManager.o
