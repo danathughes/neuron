@@ -28,6 +28,7 @@ int main(int argc, const char** argv){
 	gPoolAllocator.StartUp(&gMessageBus);
 	gInputManager.StartUp(&gMessageBus);
 
+  // TODO: This problem should be solvable, as people have dealt with it before: http://www.glfw.org/faq.html#how-do-i-use-c-methods-as-callbacks, http://www.cplusplus.com/forum/general/117300/
 	void (InputManager::*fptr)(GLFWwindow*, int, int, int, int) = &InputManager::GLFWKeyCallback; // I hate this line and everything about GLFW callbacks; implemented from http://www.codeguru.com/cpp/cpp/article.php/c17401/C-Tutorial-PointertoMember-Function.htm
 	gWindower.StartUp((GLFWkeyfun)(gInputManager.*fptr), &gMessageBus); // NOTE: For some reason, Gibson crashes if you start the renderer after the windower??
 	gRenderer.StartUp(&gMessageBus);
