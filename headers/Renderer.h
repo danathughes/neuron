@@ -1,6 +1,8 @@
 #pragma once
 
 #include <Subsystem.h>
+#include <LLNode.h>
+#include <Triangle.h>
 
 // GLEW
 #define GLEW_STATIC
@@ -17,11 +19,11 @@ public:
 	GLuint shaderProgram;
 	GLuint VAO;
 	GLuint VBO;
-	GLfloat* vertices; // our array of vertices for drawing
+	//GLfloat* vertices; // our array of vertices for drawing
 
+	void BufferData(const LLNode<Triangle>* const scene);
 	void DrawLoop(GLFWwindow* window, const GLuint shaderProgram, const GLuint VAO, const GLuint VBO);
 	void HandleMessage(enum MESSAGE_TYPE msg, void* data);
-	void InitializeDrawData();
 	void InitializeShaders();
 	void StartUp(MessageBus* mb);
 	void ShutDown();

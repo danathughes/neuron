@@ -8,6 +8,7 @@ template<class T>
 class LLNode
 {
 	public:
+		LLNode();
 		LLNode(const T& item, LLNode<T>* ptrnext = NULL);
 		~LLNode();
 
@@ -16,7 +17,7 @@ class LLNode
     LLNode<T>* DeleteAfter();
     LLNode<T>* GetNode(const T& item, LLNode<T>* nextptr = NULL);
 
-		T data;
+		T* data;
   private:
     LLNode<T>* next;
 };
