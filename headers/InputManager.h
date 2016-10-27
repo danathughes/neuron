@@ -24,6 +24,6 @@ public:
 	void RightArrow() const;
 
   // NOTE: GLFWKeyCallback was static in the last working build
-	void GLFWKeyCallback(GLFWwindow* window, int key, int scancode, int action, int mode);
+	void HandleGLFWCallback(GLFWwindow* window, int key, int action);
 	void HandleMessage(enum MESSAGE_TYPE msg, void* data);
 };

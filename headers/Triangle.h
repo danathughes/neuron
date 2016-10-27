@@ -7,6 +7,7 @@ class Triangle
 {
 public:
 	Triangle();
+	Triangle(const Triangle* const copyTriangle);
 	Triangle(const GibVect3* const vert1, const GibVect3* const vert2, const GibVect3* const vert3);
 	~Triangle();
 	void Move(const GibVect3* const distance);

@@ -18,9 +18,11 @@ class Windower : public Subsystem
 {
 public:
 	GLFWwindow* window;
-	void StartUp(GLFWkeyfun callback, MessageBus* mb);
+	void StartUp(InputManager* gInputManager, MessageBus* mb);
 	void ShutDown();
 	Windower();
 	~Windower();
 	void HandleMessage(MESSAGE_TYPE msg, void* data);
 };
+
+void GLFWKeyCallback(GLFWwindow* window, int key, int scancode, int action, int mode);

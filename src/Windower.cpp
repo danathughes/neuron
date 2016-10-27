@@ -17,7 +17,7 @@
 // Window dimensions
 const GLuint WIDTH = 1200, HEIGHT = 800;
 
-void Windower::StartUp(GLFWkeyfun callback, MessageBus* mb)
+void Windower::StartUp(InputManager* gInputmanager, MessageBus* mb)
 {
 	std::cout << "Starting windowing subsystem.\n";
 	this->msgBus = mb;
@@ -37,7 +37,8 @@ void Windower::StartUp(GLFWkeyfun callback, MessageBus* mb)
 	this->window = glfwCreateWindow(WIDTH, HEIGHT, "Gibson Engine", nullptr, nullptr);
 	glfwMakeContextCurrent(window);
 	// Set the required callback functions
-	glfwSetKeyCallback(window, callback);
+	glfwSetWindowUserPointer(this->window, gInputmanager);
+	glfwSetKeyCallback(this->window, GLFWKeyCallback);
 	// Set this to true so GLEW knows to use a modern approach to retrieving function pointers and extensions
 	glewExperimental = GL_TRUE;
 	// Initialize GLEW to setup the OpenGL Function pointers
@@ -67,4 +68,9 @@ Windower::~Windower()
 
 void Windower::HandleMessage(enum MESSAGE_TYPE msg, void* data) {
 	std::cout << "Windower: I received a message! It contains data: " << *(int*)data << "\n";
+}
+
+void GLFWKeyCallback(GLFWwindow* window, int key, int scancode, int action, int mode){
+		InputManager* gInputManager = (InputManager*)glfwGetWindowUserPointer(window);
+		gInputManager->HandleGLFWCallback(window, key, action);
 }

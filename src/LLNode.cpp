@@ -17,10 +17,12 @@ LLNode<T>::~LLNode()
   // TODO: Once memory management becomes a thing, the destructor needs to go through the list and free all data
 }
 
+/*
 template<class T>
 LLNode<T>::LLNode(const T* const item, LLNode<T>* ptrnext){
   this->data = new T(item);
 }
+*/
 
 template<class T>
 LLNode<T>* LLNode<T>::NextNode(){

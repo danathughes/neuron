@@ -21,8 +21,8 @@ void SceneManager::StartUp(MessageBus* mb) {
 
 	// TODO: Refactor this to use WAD files; this will require writing the FileManager system, and will unblock writing a Shader class
 	GibVect3* vert1 = new GibVect3(-0.5f, -0.5f, 0.0f); // Bottom Left
-	GibVect3* vert2 = new GibVect3(-0.5f, 0.5f, 0.0f)  // Top Left
-	GibVect3* vert3 = new GibVect3(0.5f, 0.5f, 0.0f)	// Top Right
+	GibVect3* vert2 = new GibVect3(-0.5f, 0.5f, 0.0f);  // Top Left
+	GibVect3* vert3 = new GibVect3(0.5f, 0.5f, 0.0f);	// Top Right
 	Triangle* sceneObj = new Triangle(vert1, vert2, vert3);
 	this->scene = new LLNode<Triangle>(sceneObj, nullptr);
 	delete(vert1);

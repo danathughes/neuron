@@ -43,8 +43,8 @@ clean:
 	(rm *.o; rm headers/*.gch; rm all_tests; rm gibson) || true
 
 #Make and run the engine
-gibson: main.o Renderer.o Windower.o PoolAllocator.o InputManager.o LLNode.o Triangle.o GibVect3.o SceneManager.o MessageBus.o
-	$(CC)  main.o Renderer.o Windower.o PoolAllocator.o InputManager.o GibVect3.o Triangle.o SceneManager.o MessageBus.o  $(LINKER_FLAGS) $(FILE_TYPE) -o gibson
+gibson: main.o Renderer.o Windower.o PoolAllocator.o InputManager.o Triangle.o LLNode.o GibVect3.o SceneManager.o MessageBus.o
+	$(CC) main.o Renderer.o Windower.o PoolAllocator.o InputManager.o Triangle.o LLNode.o GibVect3.o SceneManager.o MessageBus.o  $(LINKER_FLAGS) $(FILE_TYPE) -o gibson
 	./gibson
 
 retest: clean all_tests

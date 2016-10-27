@@ -9,7 +9,7 @@ class LLNode
 {
 	public:
 		LLNode();
-		LLNode(const T& item, LLNode<T>* ptrnext = NULL);
+		LLNode(const T* const item, LLNode<T>* ptrnext = NULL);
 		~LLNode();
 
     LLNode<T>* NextNode();
@@ -21,3 +21,8 @@ class LLNode
   private:
     LLNode<T>* next;
 };
+
+template<class T>
+LLNode<T>::LLNode(const T* const item, LLNode<T>* ptrnext){
+  this->data = new T(item);
+}

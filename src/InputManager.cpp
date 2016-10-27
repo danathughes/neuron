@@ -55,7 +55,7 @@ void InputManager::LeftArrow() const
 	this->msgBus->PostMessage(MESSAGE_TYPE::MOVE_LEFT, SYSTEM_TYPE::SCENE_MANAGER, nullptr);
 }
 
-void InputManager::GLFWKeyCallback(GLFWwindow* window, int key, int scancode, int action, int mode)
+void InputManager::HandleGLFWCallback(GLFWwindow* window, int key, int action)
 {
 	if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS) {
 			glfwSetWindowShouldClose(window, GL_TRUE);
