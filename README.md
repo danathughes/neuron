@@ -1,14 +1,16 @@
 # The Gibson Engine
-A 3D game engine.
+A 3D game engine
 
 ## Roadmap
-Gibson is an iteratively developed project for the purpose of self-teaching game engine programming; the first major release will be written to support a simple first person game. The core focus of Gibson is the rendering subsystem, and to some extent the physics subsystem as well (the 1.0 release
-will use either a vastly oversimplified library just to get things moving, or a middleware solution like PhysX, whichever is easier).
+Gibson is an iteratively developed project for the purpose of self-teaching game engine programming. See the Issues tab for a list of upcoming features.
 
 ## Directory structure
-- `src/` and `headers/` - contains core .cpp and .h files
-- `shaders/` - contains GLSL shader files
-- `lib/` - libraries for GLFW and GLEW
+- `src/`- core source files, including main.cpp
+- `headers/` - core headers, as well as subdirectories for test headers, abstract classes, and data headers
+- `shaders/` - GLSL shader files
+- `lib/` - libraries for GLFW and GLEW (requires LFS)
+- `tests` - source files for unit tests.
+- `Releases` - binaries for engine releases (requires LFS); **THIS WILL BE DEPRECATED SOON**
 
 ## Building
 You will need Git LFS to correctly pull the files in lib/, regardless of the platform.
