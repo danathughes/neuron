@@ -29,6 +29,10 @@ PoolAllocator::~PoolAllocator()
 }
 
 void PoolAllocator::HandleMessage(enum MESSAGE_TYPE msg, void* data) {
-	std::cout << "PoolAllocator: I received a message! It contains data: " << *(int*)data << "\n";
-
+	if (data != nullptr) {
+		std::cout << "PoolAllocator: I received a " << msg << " message! It contains data: " << *(int*)data << "\n";
+	}
+	else {
+		std::cout << "PoolAllocator: I received a message! The data was a null pointer. \n";
+	}
 }

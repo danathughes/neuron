@@ -152,7 +152,12 @@ Renderer::~Renderer()
 
 
 void Renderer::HandleMessage(enum MESSAGE_TYPE msg, void* data) {
-	std::cout << "Renderer: I received a message! It contains data: " << *(int*)data << "\n";
+	if (data != nullptr) {
+		std::cout << "Renderer: I received a " << msg << " message! It contains data: " << *(int*)data << "\n";
+	}
+	else {
+		std::cout << "Renderer: I received a message! The data was a null pointer. \n";
+	}
 	switch (msg) {
 		case REBUFFER_DATA:
 			this->BufferData((LLNode<Triangle>*)data);

@@ -79,5 +79,10 @@ void InputManager::HandleGLFWCallback(GLFWwindow* window, int key, int action)
 }
 
 void InputManager::HandleMessage(enum MESSAGE_TYPE msg, void* data) {
-	std::cout << "InputManager: I received a message! It contains data: " << *(int*)data << "\n";
+	if (data != nullptr) {
+		std::cout << "InputManager: I received a " << msg << " message! It contains data: " << *(int*)data << "\n";
+	}
+	else {
+		std::cout << "InputManager: I received a message! The data was a null pointer. \n";
+	}
 }

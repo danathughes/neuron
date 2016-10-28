@@ -58,7 +58,12 @@ void SceneManager::CheckObjects() {
 }
 
 void SceneManager::HandleMessage(enum MESSAGE_TYPE msg, void* data) {
-	std::cout << "SceneManager: I received a message! It contains data: " << *(int*)data << "\n";
+	if (data != nullptr) {
+		std::cout << "SceneManager: I received a " << msg << " message! It contains data: " << *(int*)data << "\n";
+	}
+	else {
+		std::cout << "SceneManager: I received a message! The data was a null pointer. \n";
+	}
 	GibVect3* distance; // TODO: Refactor - distance should only apply to Move() related messages
 	switch (msg) {
 		case MOVE_UP:
