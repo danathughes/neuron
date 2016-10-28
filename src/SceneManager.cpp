@@ -20,9 +20,9 @@ void SceneManager::StartUp(MessageBus* mb) {
 	this->msgBus = mb;
 
 	// TODO: Refactor this to use WAD files; this will require writing the FileManager system, and will unblock writing a Shader class
-	GibVect3* vert1 = new GibVect3(-0.5f, -0.5f, 0.0f); // Bottom Left
-	GibVect3* vert2 = new GibVect3(-0.5f, 0.5f, 0.0f);  // Top Left
-	GibVect3* vert3 = new GibVect3(0.5f, 0.5f, 0.0f);	// Top Right
+	GibVect3* vert1 = new GibVect3(-0.1f, -0.1f, 0.0f); // Bottom Left
+	GibVect3* vert2 = new GibVect3(-0.1f, 0.1f, 0.0f);  // Top Left
+	GibVect3* vert3 = new GibVect3(0.1f, 0.1f, 0.0f);	// Top Right
 	Triangle* sceneObj = new Triangle(vert1, vert2, vert3);
 	this->scene = new LLNode<Triangle>(sceneObj, nullptr);
 	//delete(vert1);
@@ -67,32 +67,32 @@ void SceneManager::HandleMessage(enum MESSAGE_TYPE msg, void* data) {
 	GibVect3* distance; // TODO: Refactor - distance should only apply to Move() related messages
 	switch (msg) {
 		case MOVE_UP:
-			distance = new GibVect3(0.0, 1.0, 0);
+			distance = new GibVect3(0.0, 0.1, 0);
 			this->scene->data->Move(distance);
 			delete(distance);
 			this->msgBus->PostMessage(MESSAGE_TYPE::REBUFFER_DATA, SYSTEM_TYPE::RENDERER, this->scene);
 			break;
 		case MOVE_DOWN:
-			distance = new GibVect3(0.0, -1.0, 0);
+			distance = new GibVect3(0.0, -0.1, 0);
 			this->scene->data->Move(distance);
 			delete(distance);
 			this->msgBus->PostMessage(MESSAGE_TYPE::REBUFFER_DATA, SYSTEM_TYPE::RENDERER, this->scene);
 			break;
 		case MOVE_LEFT:
-			distance = new GibVect3(-1.0, 0.0, 0);
+			distance = new GibVect3(-0.1, 0.0, 0);
 			this->scene->data->Move(distance);
 			delete(distance);
 			this->msgBus->PostMessage(MESSAGE_TYPE::REBUFFER_DATA, SYSTEM_TYPE::RENDERER, this->scene);
 			break;
 		case MOVE_RIGHT:
-			distance = new GibVect3(1.0, 0.0, 0);
+			distance = new GibVect3(0.1, 0.0, 0);
 			this->scene->data->Move(distance);
 			delete(distance);
 			this->msgBus->PostMessage(MESSAGE_TYPE::REBUFFER_DATA, SYSTEM_TYPE::RENDERER, this->scene);
 			break;
 		case READY:
 			// Now initialize the scene
-			this->msgBus->PostMessage(MESSAGE_TYPE::REBUFFER_DATA, SYSTEM_TYPE::RENDERER, this->scene);
+			this->msgBus->PostMessage(MESSAGE_TYPE::INITIALIZE_DATA, SYSTEM_TYPE::RENDERER, this->scene);
 			break;
 		default:
 			break;

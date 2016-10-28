@@ -59,20 +59,27 @@ void Renderer::InitializeShaders()
 	glDeleteShader(fragmentShader);
 }
 
-void Renderer::BufferData(const LLNode<Triangle>* const scene) {
-	// Set up vertex data (and buffer(s)) and attribute pointers (in CPU memory)
+void Renderer::RebufferData(const LLNode<Triangle>* const scene) {
+	GLfloat* vertices = (GLfloat*)(scene->data->BufferData());
+	std::cout << "Renderer::RebufferData()\n";
+	for (int i = 0; i < 9; i++){
+		std::cout << vertices[i] << ", ";
+	}
+	std::cout << "\n";
+	glBindBuffer(GL_ARRAY_BUFFER, this->VBO);
+	glBufferSubData(GL_ARRAY_BUFFER, NULL, 36, vertices);
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	delete(vertices);
+}
 
-	GLfloat vertices[] = {
-		-0.5f, -0.5f, 0.0f, // Bottom Left
-		0.5f, -0.5f, 0.0f, // Bottom Right
-		-0.5f, 0.5f, 0.0f,  // Top Left
-		0.5f, 0.5f, 0.0f	// Top Right
+void Renderer::InitializeData(const LLNode<Triangle>* const scene) {
+	GLfloat* vertices = (GLfloat*)(scene->data->BufferData());
 
-	};
-	//this->vertices = vertices;
-
-	//GLfloat* vertices2 = (GLfloat*)(scene->data->BufferData());
-
+	std::cout << "Renderer::InitializeData()\n";
+	for (int i = 0; i < 9; i++){
+		std::cout << vertices[i] << ", ";
+	}
+	std::cout << "\n";
 
 	// Allocate reference for our Vertex Array/Attribute Object
 	glGenVertexArrays(1, &this->VAO);
@@ -85,7 +92,7 @@ void Renderer::BufferData(const LLNode<Triangle>* const scene) {
 	// Bind the vertex for the context
 	glBindBuffer(GL_ARRAY_BUFFER, this->VBO);
 	// Copy vertices into the allocated buffer in GPU memory
-	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, 36, vertices, GL_DYNAMIC_DRAW);
 	// Set up data about our VBO; this function _only_ works if a VBO is bound to GL_ARRAY_BUFFER
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (GLvoid*)0);
 	// Enable the vertex array created above;
@@ -95,7 +102,7 @@ void Renderer::BufferData(const LLNode<Triangle>* const scene) {
 
 	glBindVertexArray(0); // Unbind VAO (it's always a good thing to unbind any buffer/array to prevent strange bugs)
 
-	//delete(vertices);
+	delete(vertices);
 }
 
 void Renderer::DrawLoop(GLFWwindow* window, const GLuint shaderProgram, const GLuint VAO, const GLuint VBO) {
@@ -159,7 +166,10 @@ void Renderer::HandleMessage(enum MESSAGE_TYPE msg, void* data) {
 	}
 	switch (msg) {
 		case REBUFFER_DATA:
-			this->BufferData((LLNode<Triangle>*)data);
+			this->RebufferData((LLNode<Triangle>*)data);
+			break;
+		case INITIALIZE_DATA:
+			this->InitializeData((LLNode<Triangle>*)data);
 			break;
 		default:
 			break;
