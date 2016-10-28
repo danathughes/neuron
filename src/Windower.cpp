@@ -67,7 +67,12 @@ Windower::~Windower()
 }
 
 void Windower::HandleMessage(enum MESSAGE_TYPE msg, void* data) {
-	std::cout << "Windower: I received a message! It contains data: " << *(int*)data << "\n";
+	if (data != nullptr) {
+		std::cout << "Windower: I received a " << msg << " message! It contains data: " << *(int*)data << "\n";
+	}
+	else {
+		std::cout << "Windower: I received a message! The data was a null pointer. \n";
+	}
 }
 
 void GLFWKeyCallback(GLFWwindow* window, int key, int scancode, int action, int mode){

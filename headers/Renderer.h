@@ -21,7 +21,8 @@ public:
 	GLuint VBO;
 	//GLfloat* vertices; // our array of vertices for drawing
 
-	void BufferData(const LLNode<Triangle>* const scene);
+	void InitializeData(const LLNode<Triangle>* const scene);
+	void RebufferData(const LLNode<Triangle>* const scene);
 	void DrawLoop(GLFWwindow* window, const GLuint shaderProgram, const GLuint VAO, const GLuint VBO);
 	void HandleMessage(enum MESSAGE_TYPE msg, void* data);
 	void InitializeShaders();

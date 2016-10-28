@@ -10,6 +10,9 @@ void MessageBus::StartUp(InputManager* gInputManager, Renderer* gRenderer, Windo
 	this->mbWindower = gWindower;
 	this->mbSceneManager = gSceneManager;
 	this->mbPoolAllocator = gPoolAllocator;
+
+	// Everything else is ready, tell the SceneManager to initialize the scene
+	this->PostMessage(MESSAGE_TYPE::READY, SYSTEM_TYPE::SCENE_MANAGER, nullptr);
 }
 
 void MessageBus::ShutDown()
