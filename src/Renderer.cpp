@@ -61,17 +61,17 @@ void Renderer::InitializeShaders()
 
 void Renderer::BufferData(const LLNode<Triangle>* const scene) {
 	// Set up vertex data (and buffer(s)) and attribute pointers (in CPU memory)
-	/*
+
 	GLfloat vertices[] = {
 		-0.5f, -0.5f, 0.0f, // Bottom Left
-	//	0.5f, -0.5f, 0.0f, // Bottom Right
+		0.5f, -0.5f, 0.0f, // Bottom Right
 		-0.5f, 0.5f, 0.0f,  // Top Left
 		0.5f, 0.5f, 0.0f	// Top Right
 
 	};
-	this->vertices = vertices;
-	*/
-	GLfloat* vertices = (GLfloat*)scene->data->BufferData();
+	//this->vertices = vertices;
+
+	//GLfloat* vertices2 = (GLfloat*)(scene->data->BufferData());
 
 
 	// Allocate reference for our Vertex Array/Attribute Object
@@ -95,8 +95,7 @@ void Renderer::BufferData(const LLNode<Triangle>* const scene) {
 
 	glBindVertexArray(0); // Unbind VAO (it's always a good thing to unbind any buffer/array to prevent strange bugs)
 
-	delete(vertices);
-
+	//delete(vertices);
 }
 
 void Renderer::DrawLoop(GLFWwindow* window, const GLuint shaderProgram, const GLuint VAO, const GLuint VBO) {
