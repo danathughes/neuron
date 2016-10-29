@@ -16,8 +16,9 @@ public:
 	~InputManager();
 	void StartUp(MessageBus* const mb);
 	void ShutDown();
-	void HandleGLFWCallback(GLFWwindow* window, const int key, const int action);
 	void HandleMessage(const enum MESSAGE_TYPE msg, const void* const data);
+
+	void HandleGLFWCallback(GLFWwindow* window, const int key, const int action);
 	void DownArrow() const;
 	void LeftArrow() const;
 	void RightArrow() const;
