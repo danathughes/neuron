@@ -16,7 +16,7 @@ public:
 	void x(const float newX);
 	float y() const;
 	void y(const float newY);
-	float z()const ;
+	float z()const;
 	void z(const float newZ);
 
 private:
