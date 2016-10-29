@@ -9,7 +9,7 @@ class PoolAllocator : public Subsystem
 public:
 	PoolAllocator();
 	~PoolAllocator();
-	void StartUp(MessageBus* mb);
+	void StartUp(MessageBus* const mb);
 	void ShutDown();
 	void HandleMessage(const enum MESSAGE_TYPE msg, const void* const data);
 };

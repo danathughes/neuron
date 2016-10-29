@@ -5,8 +5,18 @@
 #include <Messages.h>
 #include <MessageBus.h>
 
+// ctors/dtors/Startup/Shutdown
+PoolAllocator::PoolAllocator()
+{
 
-void PoolAllocator::StartUp(MessageBus* mb)
+}
+
+PoolAllocator::~PoolAllocator()
+{
+
+}
+
+void PoolAllocator::StartUp(MessageBus* const mb)
 {
 	std::cout << "Starting memory allocator and allocating a fuckton of memory.\n";
 	this->msgBus = mb;
@@ -18,16 +28,7 @@ void PoolAllocator::ShutDown()
 
 }
 
-PoolAllocator::PoolAllocator()
-{
-
-}
-
-PoolAllocator::~PoolAllocator()
-{
-
-}
-
+// public 
 void PoolAllocator::HandleMessage(const enum MESSAGE_TYPE msg, const void* const data) {
 	if (data != nullptr) {
 		std::cout << "PoolAllocator: I received a " << msg << " message! It contains data: " << *(int*)data << "\n";
