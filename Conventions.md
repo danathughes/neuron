@@ -7,6 +7,7 @@ In general, the conventions should make bugs as clear as possible.
 - Despite being technically unnecessary, preface methods and attributes with `this->` so it's explicit that it's a method or attribute.
 - In function declarations, put the return type, name, and args on one line followed by space and open brace.
 - Every source file should have three sections - ctors/dtors/Startup/Shutdown, public, and private; separate them and keep them alphabetized.
+- Wrap function calls / definitions / declarations that get too long (use good judgement); use PEP-8 style indentation so that the args on the second line are flush with the ones on the first (so that it doesn't look like code in the body)
 
 ## Practices (how should code work?)
 - Every single thing that can be `const` should be
@@ -28,8 +29,10 @@ public:
     ~SomeClass();												// Last is the destructor
 	StartUp();													// If the class is a subsystem, put StartUp and ShutDown after the constructors/destructors
 	ShutDown();			
-    int AMutator();												// Then any other methods, alphabetized. If a method isn't marked const, assume it is a mutator
-    void NotMutator2(const int x, const SomeType* thing) const;	// Const correct EVERYTHING otherwise
+    int AMutator();												// Then any other methods, alphabetized. If a method isn't marked const,
+                                                                // assume it is a mutator.
+    void NotMutator2(const int x,
+                     const SomeType* thing) const;	            // Correct wrapping; and const correct EVERYTHING
 
     float* anything;											// Newline, then attributes
     int data1;

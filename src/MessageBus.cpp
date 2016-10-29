@@ -2,8 +2,15 @@
 
 #include <MessageBus.h>
 
-void MessageBus::StartUp(InputManager* gInputManager, Renderer* gRenderer, Windower* gWindower,	SceneManager* gSceneManager, PoolAllocator* gPoolAllocator)
-{
+// ctors/dtors/Startup/Shutdown
+MessageBus::MessageBus() {
+}
+
+MessageBus::~MessageBus() {
+}
+
+void MessageBus::StartUp(InputManager* const gInputManager, Renderer* const gRenderer, Windower* const gWindower,
+						 SceneManager* const gSceneManager, PoolAllocator* const gPoolAllocator) {
 	std::cout << "Starting message bus, beep beep.\n";
 	this->mbInputManager = gInputManager;
 	this->mbRenderer = gRenderer;
@@ -15,23 +22,12 @@ void MessageBus::StartUp(InputManager* gInputManager, Renderer* gRenderer, Windo
 	this->PostMessage(MESSAGE_TYPE::READY, SYSTEM_TYPE::SCENE_MANAGER, nullptr);
 }
 
-void MessageBus::ShutDown()
-{
+void MessageBus::ShutDown() {
 	std::cout << "Stopping message bus, honk honk.\n";
-
 }
 
-MessageBus::MessageBus()
-{
-
-}
-
-MessageBus::~MessageBus()
-{
-
-}
-
-void MessageBus::PostMessage(enum MESSAGE_TYPE msg, enum SYSTEM_TYPE system, void* data) {
+// public
+void MessageBus::PostMessage(const enum MESSAGE_TYPE msg, const enum SYSTEM_TYPE system, const void* const data) {
 	std::cout << "Processing message...\n";
 	switch (system) {
 		case INPUT_MANAGER:
