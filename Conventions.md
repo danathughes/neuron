@@ -51,7 +51,7 @@ private:														// Newline, private, wash, rinse, and repeat
 #include <3rdparty.h>
 #include <myOtherClass.h>  
                       
-// ctors/dtors/Startup/Shutdown
+// ctors/dtors/Startup/Shutdown									// Actually put this comment here
 // Omitting for concision, use ordering in the header file
 
 // public

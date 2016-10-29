@@ -1,15 +1,12 @@
 #pragma once
 
+#define GLEW_STATIC // FIXME: Linker errors happen if this constant isn't defined here, not sure why.
+#include <GL/glew.h>
+#include <glfw3.h>
+
 #include <Subsystem.h>
 #include <LLNode.h>
 #include <Triangle.h>
-
-// GLEW
-#define GLEW_STATIC
-#include <GL/glew.h>
-
-// GLFW
-#include <glfw3.h>
 
 class MessageBus; // Fwd declaration to avoid compiler error, see MessageBus.h/.cpp
 
