@@ -6,11 +6,12 @@ In general, the conventions should make bugs as clear as possible.
 - For pointers and references, use `Type* thing` or `Type& thing`, not `Type *thing`.
 - Despite being technically unnecessary, preface methods and attributes with `this->` so it's explicit that it's a method or attribute.
 - In function declarations, put the return type, name, and args on one line followed by space and open brace.
-- Every source file should have three sections - ctors/dtors/Startup/Shutdown, public, and private; separate them and keep them alphabetized. 
+- Every source file should have three sections - ctors/dtors/Startup/Shutdown, public, and private; separate them and keep them alphabetized.
 
 ## Practices (how should code work?)
 - Every single thing that can be `const` should be
 - Assume all non-const functions are mutators and all non-const parameters are mutated
+- Use const variables instead of #define'd things where possible
 
 ## Example header and source files
 ---

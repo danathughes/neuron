@@ -1,5 +1,8 @@
 #include <iostream>
 
+#include <GL/glew.h>
+#include <glfw3.h>
+
 #include <Subsystem.h>
 #include <Windower.h>
 #include <Renderer.h>
@@ -7,13 +10,8 @@
 #include <Messages.h>
 #include <MessageBus.h>
 
-// GLEW
+// GLEW token, needed for staticly linked executable
 #define GLEW_STATIC
-#include <GL/glew.h>
-
-// GLFW
-#include <glfw3.h>
-
 // Window dimensions
 const GLuint WIDTH = 1200, HEIGHT = 800;
 

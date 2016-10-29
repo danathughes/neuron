@@ -1,14 +1,10 @@
 #pragma once
 
+#include <GL/glew.h>
+#include <glfw3.h>
 #include <Subsystem.h>
 
-// GLEW
 #define GLEW_STATIC
-#include <GL/glew.h>
-
-// GLFW
-#include <glfw3.h>
-
 class MessageBus; // Fwd declaration to avoid compiler error, see MessageBus.h/.cpp
 
 class InputManager : public Subsystem
@@ -18,12 +14,10 @@ public:
 	~InputManager();
 	void StartUp(MessageBus* mb);
 	void ShutDown();
-	void UpArrow() const;
+	void HandleGLFWCallback(GLFWwindow* window, int key, int action);
+	void HandleMessage(enum MESSAGE_TYPE msg, void* data);
 	void DownArrow() const;
 	void LeftArrow() const;
 	void RightArrow() const;
-
-  // NOTE: GLFWKeyCallback was static in the last working build
-	void HandleGLFWCallback(GLFWwindow* window, int key, int action);
-	void HandleMessage(enum MESSAGE_TYPE msg, void* data);
+	void UpArrow() const;
 };
