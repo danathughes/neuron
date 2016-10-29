@@ -10,9 +10,11 @@ In general, the conventions should make bugs as clear as possible.
 - Wrap function calls / definitions / declarations that get too long (use good judgement); use PEP-8 style indentation so that the args on the second line are flush with the ones on the first (so that it doesn't look like code in the body)
 
 ## Practices (how should code work?)
+- use `#pragma once` instead of `#ifndef` guards
 - Every single thing that can be `const` should be
 - Assume all non-const functions are mutators and all non-const parameters are mutated
-- Use const variables instead of #define'd things where possible
+- Use `static const` variables instead of #define'd things where possible
+- No opaque one-liners or "optimizations" that exploit operator precedence, especially with pointers; this is not a coding competition and you don't look as cool as you think.
 
 ## Example header and source files
 ---

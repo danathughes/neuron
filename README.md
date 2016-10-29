@@ -21,11 +21,14 @@ Requires Visual Studio (2013 express). The libraries for GLFW and GLEW are in /l
 **Mac OSX (El Capitan)**  
 Requires GNU Make, GCC, GLEW, and GLFW; the first two are Homebrew-able, see learnopengl.com for the other two. Once you have the dependencies met, run `make gibson`.
 
-## Design choices
-- `const` is used [as liberally as possible](http://www.gamasutra.com/view/news/169296/Indepth_Functional_programming_in_C.php), especially for function input arguments
-- Use `const` variables instead of `#defines`
-- use `#pragma once` instead of `#ifndef` guards
-- No opaque one-liners or "optimizations" that exploit operator precedence, especially with pointers; this is not a coding competition and you don't look as cool as you think.
+## Versioning / source control
+Every version number, e.g. `1.34.4`, has three numbers that are read as `<major release>.<minor release.<edits>`. There is no standard/rule for what counts as major, minor, or an edit, but
+generally, major releases are pre-scoped with features that are broken down into individual minor releases, and edits are for bug fixes and unplanned work.
+
+Gibson uses a feature branching git workflow - developers clone the `dev` branch for whatever features they're working on and merge them back into dev once the work is done. Dev is merged to
+master and tagged as a release either 1) if three days have passed without a dev->master release, or 2) if a bunch of stuff has been merged into dev that should logically cause a version change.
+
+NOTE: There are some weird version numbers around 0.1.1 due to versions happening before this scheme was decided. 
 
 ## Conventions and Standards
 See Conventions.md
