@@ -11,11 +11,12 @@ class SceneManager : public Subsystem
 public:
 	SceneManager();
 	~SceneManager();
-	void StartUp(MessageBus* mb);
+	void StartUp(MessageBus* const mb);
 	void ShutDown();
+	void HandleMessage(const enum MESSAGE_TYPE msg, const void* const data);
+
 	void AddObject(LLNode<Triangle>* object);
 	void RemoveObject(LLNode<Triangle>* object);
-	void HandleMessage(enum MESSAGE_TYPE msg, void* data);
 	void CheckObjects();
 
 	LLNode<Triangle>* scene;

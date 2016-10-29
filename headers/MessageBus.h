@@ -13,13 +13,15 @@ class MessageBus
 public:
 	MessageBus();
 	~MessageBus();
-	void StartUp(InputManager* gInputManager, Renderer* gRenderer, Windower* gWindower, SceneManager* gSceneManager, PoolAllocator* gPoolAllocator);
+	void StartUp(InputManager* const gInputManager, Renderer* const gRenderer, Windower* const gWindower,
+				 SceneManager* const gSceneManager, PoolAllocator* const gPoolAllocator);
 	void ShutDown();
-	void PostMessage(enum MESSAGE_TYPE msg, enum SYSTEM_TYPE system, void* data);
+	void PostMessage(const enum MESSAGE_TYPE msg, const enum SYSTEM_TYPE system, const void* const data);
+
 private:
 	InputManager* mbInputManager;
-	Renderer* mbRenderer;
-	Windower* mbWindower;
-	SceneManager* mbSceneManager;
 	PoolAllocator* mbPoolAllocator;
+	Renderer* mbRenderer;
+	SceneManager* mbSceneManager;
+	Windower* mbWindower;
 };

@@ -17,12 +17,15 @@ class MessageBus; // Fwd declaration to avoid compiler error, see MessageBus.h/.
 class Windower : public Subsystem
 {
 public:
-	GLFWwindow* window;
-	void StartUp(InputManager* gInputManager, MessageBus* mb);
-	void ShutDown();
 	Windower();
 	~Windower();
-	void HandleMessage(MESSAGE_TYPE msg, void* data);
+	void StartUp(MessageBus* const mb);
+	void ShutDown();
+	void HandleMessage(const enum MESSAGE_TYPE msg, const void* const data);
+
+	void SetUpCallback(InputManager* const gInputManager);
+
+	GLFWwindow* window;
 };
 
 void GLFWKeyCallback(GLFWwindow* window, int key, int scancode, int action, int mode);
