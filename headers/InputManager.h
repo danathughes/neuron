@@ -1,13 +1,11 @@
 #pragma once
 
+#define GLEW_STATIC  // this must be defined before including GLEW
+#include <GL/glew.h> // gl.h has to be included after glew.h
+#include <glfw3.h>
+
 #include <Subsystem.h>
 
-// GLEW
-#define GLEW_STATIC
-#include <GL/glew.h>
-
-// GLFW
-#include <glfw3.h>
 
 class MessageBus; // Fwd declaration to avoid compiler error, see MessageBus.h/.cpp
 
@@ -16,14 +14,12 @@ class InputManager : public Subsystem
 public:
 	InputManager();
 	~InputManager();
-	void StartUp(MessageBus* mb);
+	void StartUp(MessageBus* const mb);
 	void ShutDown();
-	void UpArrow() const;
+	void HandleGLFWCallback(GLFWwindow* window, const int key, const int action);
+	void HandleMessage(enum MESSAGE_TYPE msg, void* data);
 	void DownArrow() const;
 	void LeftArrow() const;
 	void RightArrow() const;
-
-  // NOTE: GLFWKeyCallback was static in the last working build
-	void HandleGLFWCallback(GLFWwindow* window, int key, int action);
-	void HandleMessage(const enum MESSAGE_TYPE msg, const void* const data);
+	void UpArrow() const;
 };

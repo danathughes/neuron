@@ -16,10 +16,11 @@ public:
 	void StartUp(InputManager* gInputManager, Renderer* gRenderer, Windower* gWindower, SceneManager* gSceneManager, PoolAllocator* gPoolAllocator);
 	void ShutDown();
 	void PostMessage(enum MESSAGE_TYPE msg, enum SYSTEM_TYPE system, void* data);
+
 private:
 	InputManager* mbInputManager;
-	Renderer* mbRenderer;
-	Windower* mbWindower;
-	SceneManager* mbSceneManager;
 	PoolAllocator* mbPoolAllocator;
+	Renderer* mbRenderer;
+	SceneManager* mbSceneManager;
+	Windower* mbWindower;
 };
