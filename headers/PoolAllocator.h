@@ -11,5 +11,5 @@ public:
 	~PoolAllocator();
 	void StartUp(MessageBus* mb);
 	void ShutDown();
-	void HandleMessage(enum MESSAGE_TYPE msg, void* data);
+	void HandleMessage(const enum MESSAGE_TYPE msg, const void* const data);
 };

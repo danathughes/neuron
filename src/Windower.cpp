@@ -66,7 +66,7 @@ Windower::~Windower()
 
 }
 
-void Windower::HandleMessage(enum MESSAGE_TYPE msg, void* data) {
+void Windower::HandleMessage(const enum MESSAGE_TYPE msg, const void* const data) {
 	if (data != nullptr) {
 		std::cout << "Windower: I received a " << msg << " message! It contains data: " << *(int*)data << "\n";
 	}

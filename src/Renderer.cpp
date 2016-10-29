@@ -157,7 +157,7 @@ Renderer::~Renderer()
 }
 
 
-void Renderer::HandleMessage(enum MESSAGE_TYPE msg, void* data) {
+void Renderer::HandleMessage(const enum MESSAGE_TYPE msg, const void* const data) {
 	if (data != nullptr) {
 		std::cout << "Renderer: I received a " << msg << " message! It contains data: " << *(int*)data << "\n";
 	}

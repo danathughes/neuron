@@ -24,7 +24,7 @@ public:
 	void InitializeData(const LLNode<Triangle>* const scene);
 	void RebufferData(const LLNode<Triangle>* const scene);
 	void DrawLoop(GLFWwindow* window, const GLuint shaderProgram, const GLuint VAO, const GLuint VBO);
-	void HandleMessage(enum MESSAGE_TYPE msg, void* data);
+	void HandleMessage(const enum MESSAGE_TYPE msg, const void* const data);
 	void InitializeShaders();
 	void StartUp(MessageBus* mb);
 	void ShutDown();

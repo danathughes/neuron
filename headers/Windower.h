@@ -22,7 +22,7 @@ public:
 	void ShutDown();
 	Windower();
 	~Windower();
-	void HandleMessage(MESSAGE_TYPE msg, void* data);
+	void HandleMessage(const MESSAGE_TYPE msg, const void* const data);
 };
 
 void GLFWKeyCallback(GLFWwindow* window, int key, int scancode, int action, int mode);

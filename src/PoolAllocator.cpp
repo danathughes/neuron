@@ -28,7 +28,7 @@ PoolAllocator::~PoolAllocator()
 
 }
 
-void PoolAllocator::HandleMessage(enum MESSAGE_TYPE msg, void* data) {
+void PoolAllocator::HandleMessage(const enum MESSAGE_TYPE msg, const void* const data) {
 	if (data != nullptr) {
 		std::cout << "PoolAllocator: I received a " << msg << " message! It contains data: " << *(int*)data << "\n";
 	}

@@ -25,5 +25,5 @@ public:
 
   // NOTE: GLFWKeyCallback was static in the last working build
 	void HandleGLFWCallback(GLFWwindow* window, int key, int action);
-	void HandleMessage(enum MESSAGE_TYPE msg, void* data);
+	void HandleMessage(const enum MESSAGE_TYPE msg, const void* const data);
 };
