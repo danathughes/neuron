@@ -25,17 +25,9 @@ Requires GNU Make, GCC, GLEW, and GLFW; the first two are Homebrew-able, see lea
 - use `#pragma once` instead of `#ifndef` guards
 - No opaque one-liners or "optimizations" that exploit operator precedence, especially with pointers; this is not a coding competition and you don't look as cool as you think.
 
-## Conventions
-- Use capitalized camel case `LikeThis`, not `like_this` or `m_LikeThis`. Prefix globals with `g`, `gLikeThis`.
-- In class declarations, declare public, then private, attributes first, then methods (except constructors/destructors - place them last); everything should be in decending alphabetized order.
-- For pointers and references, use `Type* thing` or `Type& thing`, not `Type *thing`.
-- Despite being technically unnecessary, if you call a method from within another method, preface it with `this->` so it's explicit that it's a method of that class.
-- Return type, name, and args on one line followed by space and open brace:
-```
-void function (herp flerp) {
+## Conventions and Standards
+See Conventions.md
 
-}
-```
 ## Contributing
 Feel free to send pull requests! I am always interested in collaborating.
 
