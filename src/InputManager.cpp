@@ -1,19 +1,16 @@
 #include <iostream>
 
+#define GLEW_STATIC  // this must be defined before including GLEW
+#include <GL/glew.h> // gl.h has to be included after glew.h
+#include <glfw3.h>
+
+
 #include <Subsystem.h>
 #include <InputManager.h>
 #include <Messages.h>
 #include <MessageBus.h>
 
-
-// GLEW
-#define GLEW_STATIC
-#include <GL/glew.h>
-
-// GLFW
-#include <glfw3.h>
-
-void InputManager::StartUp(MessageBus* mb)
+void InputManager::StartUp(MessageBus* const mb) // FIXME: This should be const, but I can't make it so and assign it.
 {
 	std::cout << "Starting input manager.\n";
 	this->msgBus = mb;
@@ -55,7 +52,7 @@ void InputManager::LeftArrow() const
 	this->msgBus->PostMessage(MESSAGE_TYPE::MOVE_LEFT, SYSTEM_TYPE::SCENE_MANAGER, nullptr);
 }
 
-void InputManager::HandleGLFWCallback(GLFWwindow* window, int key, int action)
+void InputManager::HandleGLFWCallback(GLFWwindow* window, const int key, const int action)
 {
 	if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS) {
 			glfwSetWindowShouldClose(window, GL_TRUE);
