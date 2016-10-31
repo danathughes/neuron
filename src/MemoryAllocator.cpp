@@ -33,3 +33,21 @@ void MemoryAllocator::HandleMessage(const enum MESSAGE_TYPE msg, const void* con
 		std::cout << "MemoryAllocator: I received a message! The data was a null pointer. \n";
 	}
 }
+
+void MemoryAllocator::GibMalloc() {
+
+}
+
+void MemoryAllocator::GibFree() {
+
+}
+
+// private
+
+void MemoryAllocator::Mark() {
+
+}
+
+void MemoryAllocator::Sweep() {
+
+}
