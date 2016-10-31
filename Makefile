@@ -24,7 +24,7 @@ SRC_PATH = ./src/
 TEST_PATH = ./tests/
 
 # INCLUDE_PATHS specifies the additional include paths we'll need
-INCLUDE_PATHS = -I/opt/X11/include -I./headers -I./shaders -I./headers/lib -I./headers/classless -I./headers/tests
+INCLUDE_PATHS = -I/opt/X11/include -I./include -I./shaders -I./include/lib -I./include/classless -I./include/tests
 #-I/usr/local/include
 
 # LIBRARY_PATHS specifies the additional library paths we'll need
@@ -35,16 +35,16 @@ LIBRARY_PATHS =  -I/opt/X11/lib -I./libs
 # Commands
 
 # Make and run the tests
-all_tests: tests.o GibVect3-tests.o GibVect3.o Triangle-tests.o Triangle.o MessageBus-tests.o MessageBus.o Renderer.o Windower.o PoolAllocator.o InputManager.o SceneManager.o
-	$(CC) tests.o GibVect3-tests.o GibVect3.o Triangle-tests.o Triangle.o MessageBus-tests.o MessageBus.o Renderer.o Windower.o PoolAllocator.o InputManager.o SceneManager.o $(LINKER_FLAGS) $(FILE_TYPE) -o all_tests
+all_tests: tests.o GibVect3-tests.o GibVect3.o Triangle-tests.o Triangle.o MessageBus-tests.o MessageBus.o Renderer.o Windower.o MemoryAllocator.o InputManager.o SceneManager.o
+	$(CC) tests.o GibVect3-tests.o GibVect3.o Triangle-tests.o Triangle.o MessageBus-tests.o MessageBus.o Renderer.o Windower.o MemoryAllocator.o InputManager.o SceneManager.o $(LINKER_FLAGS) $(FILE_TYPE) -o all_tests
 	./all_tests
 
 clean:
 	(rm *.o; rm headers/*.gch; rm all_tests; rm gibson) || true
 
 #Make and run the engine
-gibson: main.o Renderer.o Windower.o PoolAllocator.o InputManager.o Triangle.o LLNode.o GibVect3.o SceneManager.o MessageBus.o
-	$(CC) main.o Renderer.o Windower.o PoolAllocator.o InputManager.o Triangle.o LLNode.o GibVect3.o SceneManager.o MessageBus.o  $(LINKER_FLAGS) $(FILE_TYPE) -o gibson
+gibson: main.o Renderer.o Windower.o MemoryAllocator.o InputManager.o Triangle.o LLNode.o GibVect3.o SceneManager.o MessageBus.o
+	$(CC) main.o Renderer.o Windower.o MemoryAllocator.o InputManager.o Triangle.o LLNode.o GibVect3.o SceneManager.o MessageBus.o  $(LINKER_FLAGS) $(FILE_TYPE) -o gibson
 	./gibson
 
 retest: clean all_tests
@@ -81,8 +81,8 @@ LLNode.o:
 MessageBus.o:
 	$(CC) $(SRC_PATH)MessageBus.cpp $(INCLUDE_PATHS) $(LIBRARY_PATHS) $(COMPILER_FLAGS) $(FILE_TYPE) -o MessageBus.o
 
-PoolAllocator.o:
-	$(CC) $(SRC_PATH)PoolAllocator.cpp $(INCLUDE_PATHS) $(LIBRARY_PATHS) $(COMPILER_FLAGS) $(FILE_TYPE) -o PoolAllocator.o
+MemoryAllocator.o:
+	$(CC) $(SRC_PATH)PoolAllocator.cpp $(INCLUDE_PATHS) $(LIBRARY_PATHS) $(COMPILER_FLAGS) $(FILE_TYPE) -o MemoryAllocator.o
 
 Renderer.o:
 	$(CC) $(SRC_PATH)Renderer.cpp $(INCLUDE_PATHS) $(LIBRARY_PATHS) $(COMPILER_FLAGS) $(FILE_TYPE) -o Renderer.o
