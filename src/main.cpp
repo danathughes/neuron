@@ -5,11 +5,11 @@
 #include <InputManager.h>
 #include <SceneManager.h>
 #include <MessageBus.h>
-#include <PoolAllocator.h>
+#include <MemoryAllocator.h>
 
 #define DEBUG
 
-PoolAllocator gPoolAllocator;
+MemoryAllocator gMemoryAllocator;
 MessageBus gMessageBus;
 InputManager gInputManager;
 Renderer gRenderer;
@@ -17,7 +17,7 @@ Windower gWindower;
 SceneManager gSceneManager;
 
 int main(int argc, const char** argv){
-	gPoolAllocator = PoolAllocator();
+	gMemoryAllocator = MemoryAllocator();
 	gInputManager = InputManager();
 	gRenderer = Renderer();
 	gWindower = Windower();
@@ -25,13 +25,13 @@ int main(int argc, const char** argv){
 	gMessageBus = MessageBus();
 
 	// Start subsystems in the correct order
-	gPoolAllocator.StartUp(&gMessageBus);
+	gMemoryAllocator.StartUp(&gMessageBus);
 	gInputManager.StartUp(&gMessageBus);
 	gWindower.StartUp(&gMessageBus); // NOTE: For some reason, Gibson crashes if you start the renderer after the windower??
 	gWindower.SetUpCallback(&gInputManager); // FIXME: Special method needed to initialize GLFW;
 	gRenderer.StartUp(&gMessageBus);
 	gSceneManager.StartUp(&gMessageBus);
-	gMessageBus.StartUp(&gInputManager, &gRenderer, &gWindower, &gSceneManager, &gPoolAllocator);
+	gMessageBus.StartUp(&gInputManager, &gRenderer, &gWindower, &gSceneManager, &gMemoryAllocator);
 
 	// Begin game loop
 	std::cout << "Game is running! \n";

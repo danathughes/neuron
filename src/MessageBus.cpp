@@ -10,13 +10,13 @@ MessageBus::~MessageBus() {
 }
 
 void MessageBus::StartUp(InputManager* const gInputManager, Renderer* const gRenderer, Windower* const gWindower,
-						 SceneManager* const gSceneManager, PoolAllocator* const gPoolAllocator) {
+						 SceneManager* const gSceneManager, MemoryAllocator* const gMemoryAllocator) {
 	std::cout << "Starting message bus, beep beep.\n";
 	this->mbInputManager = gInputManager;
 	this->mbRenderer = gRenderer;
 	this->mbWindower = gWindower;
 	this->mbSceneManager = gSceneManager;
-	this->mbPoolAllocator = gPoolAllocator;
+	this->mbMemoryAllocator = gMemoryAllocator;
 
 	// Everything else is ready, tell the SceneManager to initialize the scene
 	this->PostMessage(MESSAGE_TYPE::READY, SYSTEM_TYPE::SCENE_MANAGER, nullptr);
@@ -35,8 +35,8 @@ void MessageBus::PostMessage(const enum MESSAGE_TYPE msg, const enum SYSTEM_TYPE
 			this->mbInputManager->HandleMessage(msg, data);
 			break;
 		case POOL_ALLOCATOR:
-			std::cout << "MessageBus: Messaging PoolAllocator...\n";
-			this->mbPoolAllocator->HandleMessage(msg, data);
+			std::cout << "MessageBus: Messaging MemoryAllocator...\n";
+			this->mbMemoryAllocator->HandleMessage(msg, data);
 			break;
 		case RENDERER:
 			std::cout << "MessageBus: Messaging Renderer...\n";
@@ -53,7 +53,7 @@ void MessageBus::PostMessage(const enum MESSAGE_TYPE msg, const enum SYSTEM_TYPE
 		case BROADCAST:
 			std::cout << "MessageBus: Messaging broadcast (all systems)...\n";
 			this->mbInputManager->HandleMessage(msg, data);
-			this->mbPoolAllocator->HandleMessage(msg, data);
+			this->mbMemoryAllocator->HandleMessage(msg, data);
 			this->mbRenderer->HandleMessage(msg, data);
 			this->mbSceneManager->HandleMessage(msg, data);
 			this->mbWindower->HandleMessage(msg, data);
