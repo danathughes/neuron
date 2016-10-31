@@ -82,7 +82,7 @@ MessageBus.o:
 	$(CC) $(SRC_PATH)MessageBus.cpp $(INCLUDE_PATHS) $(LIBRARY_PATHS) $(COMPILER_FLAGS) $(FILE_TYPE) -o MessageBus.o
 
 MemoryAllocator.o:
-	$(CC) $(SRC_PATH)PoolAllocator.cpp $(INCLUDE_PATHS) $(LIBRARY_PATHS) $(COMPILER_FLAGS) $(FILE_TYPE) -o MemoryAllocator.o
+	$(CC) $(SRC_PATH)MemoryAllocator.cpp $(INCLUDE_PATHS) $(LIBRARY_PATHS) $(COMPILER_FLAGS) $(FILE_TYPE) -o MemoryAllocator.o
 
 Renderer.o:
 	$(CC) $(SRC_PATH)Renderer.cpp $(INCLUDE_PATHS) $(LIBRARY_PATHS) $(COMPILER_FLAGS) $(FILE_TYPE) -o Renderer.o
