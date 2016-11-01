@@ -11,6 +11,5 @@ int main(int argc, const char** argv){
 	TriangleTests();
 	MessageBusTests();
 	std::cout << "Tests complete! Press enter to quit. \n";
-	getchar();
 	return 0;
 }

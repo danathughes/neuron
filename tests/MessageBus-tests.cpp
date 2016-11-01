@@ -26,7 +26,8 @@ void MessageBusTests(){
 	// Start subsystems in the correct order
 	gPoolAllocator.StartUp(&gMessageBus);
 	gInputManager.StartUp(&gMessageBus);
-	gWindower.StartUp(&gInputManager, &gMessageBus); // NOTE: For some reason, Gibson crashes if you start the renderer after the windower??
+	gWindower.StartUp(&gMessageBus); // NOTE: For some reason, Gibson crashes if you start the renderer after the windower??
+	gWindower.SetUpCallback(&gInputManager); // FIXME: Special method needed to initialize GLFW;
 	gRenderer.StartUp(&gMessageBus);
 	gSceneManager.StartUp(&gMessageBus);
 	gMessageBus.StartUp(&gInputManager, &gRenderer, &gWindower, &gSceneManager, &gPoolAllocator);
