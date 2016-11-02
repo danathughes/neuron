@@ -1,16 +1,14 @@
 #include <iostream>
 
+#define GLEW_STATIC
+#include <GL/glew.h>
+#include <glfw3.h>
+#include <SOIL.h>
+
 #include <Subsystem.h>
 #include <Renderer.h>
 #include <Messages.h>
 #include <MessageBus.h>
-
-// GLEW
-#define GLEW_STATIC
-#include <GL/glew.h>
-
-// GLFW
-#include <glfw3.h>
 
 // Shaders
 #include <VertexShader.h>
@@ -102,6 +100,9 @@ void Renderer::InitializeData(const LLNode<Triangle>* const scene) {
 
 	// Allocate reference for our Vertex Buffer Object
 	glGenBuffers(1, &this->VBO);
+	
+	// Allocate reference for our texture 
+	glGenTextures(1, &this->texture);
 
 	// Bind the Vertex Array Object so that it's associated with the VBO for this context
 	glBindVertexArray(this->VAO);

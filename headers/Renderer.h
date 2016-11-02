@@ -27,4 +27,5 @@ public:
 	GLuint shaderProgram;
 	GLuint VAO;
 	GLuint VBO;
+	GLuint texture;
 };

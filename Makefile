@@ -24,11 +24,11 @@ SRC_PATH = ./src/
 TEST_PATH = ./tests/
 
 # INCLUDE_PATHS specifies the additional include paths we'll need
-INCLUDE_PATHS = -I/opt/X11/include -I./headers -I./shaders -I./headers/lib -I./headers/classless -I./headers/tests
+INCLUDE_PATHS = -I/opt/X11/include -I/opt/local/include/SOIL -I./headers -I./shaders -I./headers/lib -I./headers/classless -I./headers/tests
 #-I/usr/local/include
 
 # LIBRARY_PATHS specifies the additional library paths we'll need
-LIBRARY_PATHS =  -I/opt/X11/lib -I./libs
+LIBRARY_PATHS =  -I/opt/X11/lib -I./libs -I/opt/local/lib
 #-L/usr/local/lib
 
 #######################################################################
